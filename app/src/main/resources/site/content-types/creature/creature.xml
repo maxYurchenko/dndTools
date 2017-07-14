@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Creature</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <input name="size" type="TextLine">
+      <label>Size</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="alignment" type="TextLine">
+      <label>Alignment</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="ac" type="TextLine">
+      <label>AC</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="armor" type="TextLine">
+      <label>Armor</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+    <input name="hp" type="TextLine">
+      <label>HP</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="hpDice" type="TextLine">
+      <label>HP Dice</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="speed" type="TextLine">
+      <label>Speed</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="str" type="TextLine">
+      <label>STR</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="dex" type="TextLine">
+      <label>DEX</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="con" type="TextLine">
+      <label>CON</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="int" type="TextLine">
+      <label>INT</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="wis" type="TextLine">
+      <label>WIS</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="cha" type="TextLine">
+      <label>CHA</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="exp" type="TextLine">
+      <label>Experience</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="cr" type="TextLine">
+      <label>Challenge</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="languages" type="TextLine">
+      <label>Languages</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="senses" type="TextLine">
+      <label>Senses</label>
+      <occurrences minimum="0" maximum="0"/>
+    </input>
+    <input name="skills" type="TextLine">
+      <label>Skills</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+    <input name="additionalStats" type="TextLine">
+      <label>Additional stats</label>
+      <occurrences minimum="0" maximum="0"/>
+    </input>
+    <input name="actions" type="TextLine">
+      <label>Actions</label>
+      <occurrences minimum="0" maximum="0"/>
+    </input>
+  </form>
+</content-type>

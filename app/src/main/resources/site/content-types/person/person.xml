@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Person</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <input name="race" type="TextLine">
+      <label>Race</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="sex" type="TextLine">
+      <label>Sex</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="class" type="TextLine">
+      <label>Class</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="level" type="TextArea">
+      <label>Level</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="role" type="TextArea">
+      <label>Role</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="habit" type="TextArea">
+      <label>Habit</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+  </form>
+</content-type>

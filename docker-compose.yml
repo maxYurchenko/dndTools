@@ -1,0 +1,38 @@
+version: '2'
+
+volumes:    
+    projectData:    
+
+services:
+  apache2:
+    build: apache2
+    hostname: dndTools.local
+    ports:
+      - "81:80"
+    links:
+      - exp
+    restart: always
+  exp:
+    build: exp
+    ports:
+      - "8080:8080"
+    #labels:
+    #  io.enonic.backup.prescripts: "/usr/local/bin/backup.sh $ec_backup_user $ec_backup_password"
+    #  io.enonic.backup.data: "/enonic-xp/home/snapshots,/enonic-xp/home/repo"
+    volumes:
+      - "projectData:/enonic-xp/home"
+      - "./app:/home/app"
+    restart: always
+  exp_builder:
+    build: exp
+    volumes:
+      - "projectData:/enonic-xp/home"
+      - "./app:/home/app"
+    user: enonic-xp:1000
+    environment:
+      XP_HOME: /enonic-xp/home
+      GRADLE_USER_HOME: /home/app/gradlewData
+    command: "sh -c 'cd /home/app/ && ./gradlew -t deploy'"
+  mail:
+    image: enoniccloud/postfix
+    hostname: dndTools.local

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Town</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <input name="population" type="TextLine">
+      <label>Population</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="wealth" type="TextLine">
+      <label>Wealth</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <item-set name="powerCenter">
+      <label>Power center</label>
+      <items>
+        <input name="title" type="TextLine">
+          <label>Title</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="alignment" type="TextLine">
+          <label>Alignment</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="0" maximum="0"/>
+    </item-set>
+    <input name="gpLimit" type="TextLine">
+      <label>GP Limit</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="body" type="TextArea">
+      <label>Description</label>
+      <occurrences minimum="0" maximum="0"/>
+    </input>
+  </form>
+</content-type>

@@ -1,0 +1,7 @@
+nbproject/
+app/gradlewData/
+app/\.gradle/
+app/build/
+app/src/main/resources/site/assets/
+encounterBuilder/node_modules
+encounterBuilder/build

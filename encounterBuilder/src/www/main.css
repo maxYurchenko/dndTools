@@ -1,0 +1,18 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-size: 13px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.buttons{
+	padding: 0 20px;
+	margin-bottom: 50px;
+}
+
+.tabContainer{
+	padding: 0 40px 20px;
+}

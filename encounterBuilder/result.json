@@ -1,0 +1,320 @@
+{
+  "baseConfigs": [
+    {
+      "productIDs": [
+        {
+          "productID": "3648",
+          "productName": "Stokke&reg; <strong>Xplory&trade;</strong>",
+          "title": "Stokke Xplory",
+          "priceRange": [
+            "1234",
+            "3000"
+          ],
+          "discount": "",
+          "description": "0 - 36 m&aring;nader",
+          "image": "./../images/Stroller.png",
+          "baseColors": [
+            {
+              "title": "Red",
+              "variationID": "364808",
+              "productName": "Stokke&reg; Scoot&trade; Red",
+              "productID": "3648",
+              "masterProductID": "3648",
+              "price": "1230",
+              "discount": "0",
+              "outOfStock": "false",
+              "image": "",
+              "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+              "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500"
+            },
+            {
+              "title": "Purple",
+              "variationID": "364803",
+              "productName": "Stokke&reg; Scoot&trade; Purple",
+              "productID": "3648",
+              "masterProductID": "3648",
+              "price": "1230",
+              "discount": "0",
+              "outOfStock": "true",
+              "image": "",
+              "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+              "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500"
+            },
+            {
+              "title": "Black Melange",
+              "variationID": "364801",
+              "productName": "Stokke&reg; Scoot&trade; Black Melange",
+              "productId": "3648",
+              "masterProductId": "3648",
+              "price": "1230",
+              "discount": "0",
+              "outOfStock": "false",
+              "image": "",
+              "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+              "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500"
+            },
+            {
+              "title": "Purple",
+              "variationID": "364803",
+              "productName": "Stokke&reg; Scoot&trade; Purple",
+              "productId": "3648",
+              "masterProductId": "3648",
+              "price": "1230",
+              "discount": "0",
+              "outOfStock": "false",
+              "image": "",
+              "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+              "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500"
+            }
+          ],
+          "accessoryIDs": [
+            "4571",
+            "1771"
+          ]
+        }
+      ]
+    },
+    {
+      "productIDs": [
+        {
+          "productID": "1752",
+          "productName": "Stokke&reg; <strong>Xplory&trade;</strong> med liggdel",
+          "title": "Stokke Xplory with Carry Cot",
+          "priceRange": [
+            "1234",
+            "3000"
+          ],
+          "discount": "0",
+          "description": "6 - 36 m&aring;nader",
+          "image": "./../images/Stroller.png",
+          "baseColors": [
+            {
+              "title": "Red",
+              "variationID": "175203",
+              "productName": "Stokke&reg;Stokke&reg; Xplory&reg; Red",
+              "productID": "1752",
+              "masterProductID": "1752",
+              "price": "1230",
+              "discount": "0",
+              "image": "",
+              "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+              "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500"
+            },
+            {
+              "title": "Purple",
+              "variationID": "175205",
+              "productName": "Stokke&reg; Xplory&reg; Purple",
+              "productID": "1752",
+              "masterProductID": "1752",
+              "price": "1230",
+              "discount": "0",
+              "image": "",
+              "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+              "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500"
+            },
+            {
+              "title": "Brown",
+              "variationID": "175209",
+              "productName": "Stokke&reg; Xplory&reg; Brown",
+              "productID": "1752",
+              "masterProductID": "1752",
+              "price": "1230",
+              "discount": "0",
+              "image": "",
+              "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+              "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500"
+            }
+          ],
+          "accessoryIDs": [
+            "4571",
+            "1771",
+            "1773"
+          ]
+        }
+      ]
+    }
+  ],
+  "accessories": [
+    {
+      "productID": "4571",
+      "productName": "Stokke&reg; Stroller Changing Bag",
+      "title": "Stokke&reg; Stroller Changing Bag, Black Melange.",
+      "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+      "swatches": [
+        {
+          "title": "Red",
+          "variationID": "457101",
+          "productName": "Stokke&reg; stelleveske Red",
+          "productID": "4571",
+          "price": "1.234",
+          "discount": "",
+          "masterProductID": "4571",
+          "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+          "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+          "outOfStock": "true"
+        },
+        {
+          "title": "Purple",
+          "variationID": "457102",
+          "productName": "Stokke&reg; stelleveske Purple",
+          "productID": "4571",
+          "price": "1.234",
+          "discount": "",
+          "masterProductID": "4571",
+          "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+          "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+          "outOfStock": "false"
+        },
+        {
+          "title": "Brown",
+          "variationID": "457103",
+          "productName": "Stokke&reg; stelleveske Brown",
+          "productID": "4571",
+          "price": "1.234",
+          "discount": "",
+          "masterProductID": "4571",
+          "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+          "swatchImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+          "outOfStock": "false"
+        }
+      ]
+    },
+    {
+      "productID": "3445",
+      "productName": "Stokke&reg; Scoot&trade; Soft Bag",
+      "title": "Stokke&reg; Scoot&trade; Soft Bag, Grey Melange.",
+      "price": "1.234",
+      "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+      "swatches": [
+        {
+          "title": "Dark Navy",
+          "variationID": "344503",
+          "productName": "Stokke&reg; Scoot&trade; Vognbag Dark Navy",
+          "productID": "3445",
+          "price": "1.234",
+          "discount": "",
+          "masterProductID": "3445",
+          "realImage": "",
+          "swatchImage": "",
+          "outOfStock": "true"
+        },
+        {
+          "title": "Red",
+          "variationID": "344505",
+          "productName": "Stokke&reg; Scoot&trade; Vognbag Red",
+          "productID": "3445",
+          "price": "1.234",
+          "discount": "",
+          "masterProductID": "3445",
+          "realImage": "",
+          "swatchImage": "",
+          "outOfStock": "false"
+        },
+        {
+          "title": "Beige",
+          "variationID": "344502",
+          "productName": "Stokke&reg; Scoot&trade; Vognbag Beige",
+          "productID": "3445",
+          "price": "1.234",
+          "discount": "",
+          "masterProductID": "3445",
+          "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+          "swatchImage": "",
+          "outOfStock": "false"
+        }
+      ]
+    },
+    {
+      "productID": "1771",
+      "productName": "StokkeStokke&reg; Stroller Parasol",
+      "title": "StokkeStokke&reg; Stroller Parasol, Beige Melange.",
+      "price": "1.234",
+      "image": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+      "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+      "swatches": [
+        {
+          "title": "Red",
+          "variationID": "177103",
+          "productName": "Stokke&reg; Barnevogn Parasoll Rød",
+          "productID": "1771",
+          "price": "1.234",
+          "discount": "",
+          "masterProductID": "1771",
+          "realImage": "",
+          "swatchImage": "",
+          "outOfStock": "true"
+        },
+        {
+          "title": "Purple",
+          "variationID": "177105",
+          "productName": "Stokke&reg; Barnevogn Parasoll Lilla",
+          "productID": "1771",
+          "price": "1.234",
+          "discount": "",
+          "masterProductID": "1771",
+          "realImage": "",
+          "swatchImage": "",
+          "outOfStock": "false"
+        },
+        {
+          "title": "Brown",
+          "variationID": "177109",
+          "productName": "Stokke&reg;Stokke&reg; Barnevogn Parasoll Brun",
+          "productID": "1771",
+          "price": "1.234",
+          "discount": "",
+          "masterProductID": "1771",
+          "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+          "swatchImage": "",
+          "outOfStock": "false"
+        }
+      ]
+    },
+    {
+      "productID": "1773",
+      "productName": "StokkeStokke&reg; Foot Muff",
+      "title": "StokkeStokke&reg; Foot Muff, Black Melange.",
+      "price": "1.234",
+      "image": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+      "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+      "swatches": [
+        {
+          "title": "Red",
+          "variationID": "177303",
+          "productName": "Stokke&reg;Stokke&reg; Fotpose Red",
+          "productID": "1773",
+          "masterProductID": "1773",
+          "price": "",
+          "discount": "",
+          "realImage": "",
+          "swatchImage": "",
+          "outOfStock": "true"
+        },
+        {
+          "title": "Purple",
+          "variationID": "177305",
+          "productName": "Stokke&reg; Fotpose Purple",
+          "productID": "1773",
+          "masterProductID": "1773",
+          "price": "",
+          "discount": "",
+          "realImage": "",
+          "swatchImage": "",
+          "outOfStock": "false"
+        },
+        {
+          "title": "Brown",
+          "variationID": "177309",
+          "productName": "Stokke&reg; Fotpose Brown",
+          "productID": "1773",
+          "masterProductID": "1773",
+          "price": "",
+          "discount": "",
+          "realImage": "https://placeholdit.imgix.net/~text?txtsize=42&txt=thumbnail&w=500&h=500",
+          "swatchImage": "",
+          "outOfStock": "false"
+        }
+      ]
+    }
+  ]
+}

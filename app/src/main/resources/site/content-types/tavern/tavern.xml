@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Tavern</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <input name="open" type="TextLine">
+      <label>Opened</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="close" type="TextLine">
+      <label>Close</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <item-set name="owner">
+      <label>Owner</label>
+      <items>
+        <input name="id" type="ContentSelector">
+          <label>ID</label>
+          <occurrences minimum="1" maximum="1"/>
+          <config>
+            <relationshipType>system:reference</relationshipType>
+            <allowPath>*</allowPath>
+          </config>
+        </input>
+        <input name="role" type="TextLine">
+          <label>Role</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="0" maximum="0"/>
+    </item-set>
+    <item-set name="staff">
+      <label>Staff</label>
+      <items>
+        <input name="id" type="ContentSelector">
+          <label>ID</label>
+          <occurrences minimum="1" maximum="1"/>
+          <config>
+            <relationshipType>system:reference</relationshipType>
+            <allowPath>*</allowPath>
+          </config>
+        </input>
+        <input name="role" type="TextLine">
+          <label>Role</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="0" maximum="0"/>
+    </item-set>
+    <input name="patron" type="ContentSelector">
+      <label>Patron</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <relationshipType>system:reference</relationshipType>
+        <allowPath>*</allowPath>
+      </config>
+    </input>
+    <item-set name="menu">
+      <label>Menu</label>
+      <items>
+        <input name="Breakfast" type="TextLine">
+          <label>Breakfast</label>
+          <occurrences minimum="1" maximum="0"/>
+        </input>
+        <input name="Lunch" type="TextLine">
+          <label>Lunch</label>
+          <occurrences minimum="1" maximum="0"/>
+        </input>
+        <input name="Dinner" type="TextLine">
+          <label>Dinner</label>
+          <occurrences minimum="1" maximum="0"/>
+        </input>
+        <input name="Drinks" type="TextLine">
+          <label>Drinks</label>
+          <occurrences minimum="1" maximum="0"/>
+        </input>
+      </items>
+      <occurrences minimum="0" maximum="0"/>
+    </item-set>
+  </form>
+</content-type>

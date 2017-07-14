@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Building</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <input name="type" type="TextLine">
+      <label>Type</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="price" type="TextLine">
+      <label>Price</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="lunchTime" type="TextLine">
+      <label>Lunch time</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="lunchOpen" type="TextLine">
+      <label>Open durng lunch</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <item-set name="staff">
+      <label>Staff</label>
+      <items>
+        <input name="id" type="ContentSelector">
+          <label>ID</label>
+          <occurrences minimum="1" maximum="1"/>
+          <config>
+            <relationshipType>system:reference</relationshipType>
+            <allowPath>*</allowPath>
+          </config>
+        </input>
+        <input name="role" type="TextLine">
+          <label>Role</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="0" maximum="0"/>
+    </item-set>
+  </form>
+</content-type>

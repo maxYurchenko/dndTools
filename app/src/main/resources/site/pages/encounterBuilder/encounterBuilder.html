@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html data-th-text="${monsters}">
+	<head>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+	</head>
+	<body>
+		<table id="monsters">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>CR</th>
+					<th>Add</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="monster: ${monsters}">
+					<th data-th-text="${monster.displayName}"></th>
+					<th data-th-text="${monster.data.cr}"></th>
+					<th data-th-onclick="'addMonster(\'' + ${monster.displayName + ',' + monster.data} + '\');'">Add</th>
+				</tr>
+			</tbody>
+		</table>
+		<div id="encounter">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var encounter = [];
+
+	$(document).ready(function(){
+	    $('#monsters').DataTable();
+	});
+
+	function addMonster( name, stats ){
+		encounter.push(name);
+		console.log(name);
+		drawEncounter();
+	};
+
+	function drawEncounter(){
+		var encounterText = '';
+		var totalExp = 0;
+		var totalCr = 0;
+		for( var i = 0; i < encounter.length; i++ ){
+			encounterText += "<span>" + encounter[i].displayName + "</span>";
+			//totalExp += parseInt(encounter.data.exp);
+		}
+	}
+</script>
