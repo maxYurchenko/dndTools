@@ -27,4 +27,11 @@ $ docker-compose down -v
 
 ## Front End setup
 You would need npm to setup the front end.
-Go to front end folder and type "npm install". "gulp build" will build the entire project and copy eberything to assets in Enonic.
+Go to front end folder and type 
+```
+npm install 
+```
+To the entire project and copy everything to assets in Enonic.
+```
+gulp build
+```
