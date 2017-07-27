@@ -31,7 +31,7 @@ Go to front end folder and type
 ```
 npm install 
 ```
-To the entire project and copy everything to assets in Enonic.
+To build project and copy everything to assets in Enonic.
 ```
 gulp build
 ```
