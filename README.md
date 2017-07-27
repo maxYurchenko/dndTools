@@ -1,5 +1,5 @@
 # [DnD tools app]
-# setup
+# Setup
 
 Install docker and docker-compose - https://docs.docker.com/compose/
 
@@ -24,3 +24,7 @@ To remove created volume ( remove all existing data for current installation ) :
 ```
 $ docker-compose down -v
 ```
+
+## Front End setup
+You would need npm to setup the front end.
+Go to front end folder and type "npm install". "gulp build" will build the entire project and copy eberything to assets in Enonic.
