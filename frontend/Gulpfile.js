@@ -18,3 +18,8 @@ gulp.task('fonts', function(){
 	return gulp.src('app/fonts/**/*')
 		.pipe(gulp.dest('../app/src/main/resources/site/assets/fonts'));
 });
+
+
+gulp.task('watch', function(){
+	gulp.watch('app/**/*', ['build']);
+});
