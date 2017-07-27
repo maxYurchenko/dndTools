@@ -13,12 +13,22 @@ class App extends React.Component {
       selectedMonsters: []
     }
     this.monstersModified = this.monstersModified.bind(this);
+    this.startBattle = this.startBattle.bind(this);
   }
   
   monstersModified( selectedMonsters ){
     this.setState({
       selectedMonsters: selectedMonsters
     });
+  }
+
+  startBattle(){
+    for( let m of this.state.selectedMonsters ){
+      m.data.initiative = (Math.floor((parseInt(m.data.dex) - 10) / 2 )) + Math.floor(Math.random() * 20) + 1 ;
+    }
+    for( let m of this.state.selectedMonsters ){
+      
+    }
   }
 
   render() {   
@@ -31,6 +41,7 @@ class App extends React.Component {
         <div>
           <EnemyTable enemies={this.state.monsters} callbackParent={this.monstersModified} />
         </div>
+        <button onClick={this.startBattle} />
       </div>
     );
   }

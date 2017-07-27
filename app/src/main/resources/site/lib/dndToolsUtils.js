@@ -214,3 +214,19 @@ exports.createCreature = function( creature ){
 		norseUtils.log(err);
 	}
 }
+
+exports.createItem = function( item ){
+	try{
+		var title = item.title;
+		delete item.title;
+		contentLib.create({
+	        name: title.replace('/', ' or '),
+	        displayName: title,
+	        parentPath: '/dndTools/items',
+	        contentType: app.name + ':item',
+	        data: item
+	    });
+	} catch( err ){
+
+	}
+}

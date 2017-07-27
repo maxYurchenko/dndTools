@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head data-th-utext="${pageComponents.pagehead}"></head>
+
+<body>
+    <header data-th-utext="${pageComponents.header}"></header>
+    <main>
+    	<div>
+    		<h2 data-th-text="${content.displayName}"></h2>
+    		<div>
+    			<span data-th-text="${content.data.type}"></span>
+    			<span data-th-text="${content.data.typeNote}"></span>
+    			<span data-th-text="${content.data.rarity}"></span>
+    			<span data-th-text="${content.data.attunement}"></span>
+    		</div>
+    		<div data-th-utext="${content.data.text}"></div>
+    	</div>
+    </main>
+    <footer data-th-utext="${pageComponents.footer}"></footer>
+</body>
+
+</html>
