@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<head></head>
-	<body>
-		<div data-th-each="item: ${response}" data-th-remove="tag">
-			<div data-th-utext="${item}"></div>
-		</div> 
-	</body>
+
+<head data-th-utext="${pageComponents.pagehead}"></head>
+
+<body>
+    <header data-th-utext="${pageComponents.header}"></header>
+    <main>
+    </main>
+    <footer data-th-utext="${pageComponents.footer}"></footer>
+</body>
+
 </html>

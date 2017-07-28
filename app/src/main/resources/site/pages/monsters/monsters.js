@@ -4,6 +4,7 @@ var portal = require('/lib/xp/portal');
 var contentLib = require('/lib/xp/content');
 var norseUtils = require('norseUtils');
 var dndToolsUtils = require('dndToolsUtils');
+var helpers = require('helpers');
 
 exports.get = handleGet;
 
@@ -27,20 +28,27 @@ function handleGet(req) {
         var up = req.params;
         var content = portal.getContent();
 
-        var monstersLinks = dndToolsUtils.makeRequest('http://chisaipete.github.io/bestiary', {}, 'GET').body.replaceAll('\\n', '').match(/bestiary\/creatures\/.+?"/g);
-        for( var i = 0; i < monstersLinks.length; i++ ){
-            monstersLinks[i] = monstersLinks[i].replaceAll('\\"', '');
-            if( monstersLinks[i] != 'bestiary/creatures/skyweaver' ){
-                dndToolsUtils.createCreature(getCreatureText( 'http://chisaipete.github.io/' + monstersLinks[i]));
-            }
+        if( up.getMonsters == 1 ){
+            getMonsters( up );
         }
                         
         var model = {
+            pageComponents: helpers.getPageComponents( req ),
             content: content,
             app: app
         };
 
         return model;
+
+        function getMonsters( params ){
+            var monstersLinks = dndToolsUtils.makeRequest('http://chisaipete.github.io/bestiary', {}, 'GET').body.replaceAll('\\n', '').match(/bestiary\/creatures\/.+?"/g);
+            for( var i = 0; i < monstersLinks.length; i++ ){
+                monstersLinks[i] = monstersLinks[i].replaceAll('\\"', '');
+                if( monstersLinks[i] != 'bestiary/creatures/skyweaver' ){
+                    dndToolsUtils.createCreature(getCreatureText( 'http://chisaipete.github.io/' + monstersLinks[i]));
+                }
+            }
+        }
 
         function createCreature( creatureText ){
             var mainStats = creatureText.text.split('</table>')[0].replace('<table>', '');

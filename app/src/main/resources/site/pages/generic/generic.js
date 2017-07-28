@@ -4,6 +4,7 @@ var portal = require('/lib/xp/portal');
 var contentLib = require('/lib/xp/content');
 var norseUtils = require('norseUtils');
 var dndToolsUtils = require('dndToolsUtils');
+var helpers = require('helpers');
 
 exports.get = handleGet;
 
@@ -27,9 +28,27 @@ function handleGet(req) {
         var up = req.params;
         var content = portal.getContent();
 
+        norseUtils.log(up);
+
+        if( up.generate == 1 ){
+            generateCity( up );
+        }
+
+        var model = {
+            content: content,
+            pageComponents: helpers.getPageComponents( req ),
+            app: app
+        };
+
+        return model;
+    }
+
+    return renderView();
+
+    function generateCity( params ){
         var cityParams = {
-            Name: 'Waterdeep',
-            Size: 'Village',
+            Name: 'Neverwinter',
+            Size: 'Metropolis',
             Dwarf: '8',
             Elf: '7',
             Gnome: '5',
@@ -55,18 +74,7 @@ function handleGet(req) {
         population.Guards = guards;
         var buildings = getBuildingsLinks(response);
         dndToolsUtils.createCity(city, population, buildings);
-                        
-        var model = {
-            content: content,
-            response: response,
-            data: JSON.stringify(content, null, 4),
-            app: app
-        };
-
-        return model;
     }
-
-    return renderView();
 
     function getCityAttributes( response ){
         var city = {

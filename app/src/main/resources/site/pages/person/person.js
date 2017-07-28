@@ -12,7 +12,7 @@ function handleGet(req) {
     var me = this;
 
     function renderView() {
-        var view = resolve('building.html');
+        var view = resolve('person.html');
         var model = createModel();
         var body = thymeleaf.render(view, model);
          // Return the result
@@ -27,13 +27,8 @@ function handleGet(req) {
 
         var up = req.params;
         var content = portal.getContent();
+        var response = [];
 
-        content.data.staff = norseUtils.forceArray(content.data.staff);
-        for( var i = 0; i < content.data.staff.length; i++ ){
-            content.data.staff[i].url = portal.pageUrl({ id: content.data.staff[i].id });
-            content.data.staff[i].name = contentLib.get({ key: content.data.staff[i].id }).displayName;
-        }
-        norseUtils.log(content.data.staff);
                         
         var model = {
             pageComponents: helpers.getPageComponents( req ),
@@ -42,6 +37,8 @@ function handleGet(req) {
         };
 
         return model;
+
+
     }
 
     return renderView();

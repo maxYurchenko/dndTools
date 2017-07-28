@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head data-th-utext="${pageComponents.pagehead}"></head>
+
+<body>
+    <header data-th-utext="${pageComponents.header}"></header>
+    <main>
+    	<div>
+    		<h2 data-th-text="${content.displayName}"></h2>
+    		<div data-th-text="${content.data.race}"></div>
+            <div data-th-text="${content.data.sex}"></div>
+            <div data-th-text="${content.data.class}"></div>
+            <div data-th-text="${content.data.level}"></div>
+            <div data-th-text="${content.data.role}"></div>
+            <div data-th-text="${content.data.habit}"></div>
+    	</div>
+    </main>
+    <footer data-th-utext="${pageComponents.footer}"></footer>
+</body>
+
+</html>

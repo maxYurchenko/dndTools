@@ -27,7 +27,7 @@ exports.createCity = function( city, population, buildings ){
     var city = contentLib.create({
         name: city.title,
         displayName: city.title,
-        parentPath: '/dndTools',
+        parentPath: '/dndTools/cities',
         contentType: app.name + ':town',
         data: {
             powerCenter: city.powerCenters,
@@ -101,14 +101,14 @@ exports.createPerson = function( person, parentPath ){
 	        refresh: true,
 	        data: {
 	        	race: person.race,
-	        	sex: person.race,
+	        	sex: person.sex,
 	        	class: person.class,
 	        	level: person.level,
 	        	role: person.role,
 	        	habit: person.habit
 	        }
 	    });
-	   	norseUtils.log('created ' + person.name);
+	   	norseUtils.log('created ' + person.class + ' ' + person.name);
 	} catch( err ){
 		norseUtils.log(err);
 	}
@@ -140,7 +140,7 @@ exports.createBuilding = function( building, parentPath, cityPath ){
 	        	staff: staff
 	        }
 	    });
-	    norseUtils.log('created ' + building.title);
+	    norseUtils.log('created ' + building.type + ' ' + building.title);
 	} catch( err ){
 		norseUtils.log(err);
 	}
@@ -192,7 +192,7 @@ exports.createTavern = function( tavern, parentPath, cityPath ){
 	        	menu: tavern.menu
 	        }
 	    });
-	    norseUtils.log('created ' + tavern.title);
+	    norseUtils.log('created tavern ' + tavern.title);
 	} catch( err ){
 		norseUtils.log(err);
 	}
@@ -209,7 +209,7 @@ exports.createCreature = function( creature ){
 	        contentType: app.name + ':creature',
 	        data: creature
 	    });
-	    norseUtils.log('created ' + name);
+	    norseUtils.log('created creature ' + name);
 	} catch( err ){
 		norseUtils.log(err);
 	}
@@ -226,6 +226,7 @@ exports.createItem = function( item ){
 	        contentType: app.name + ':item',
 	        data: item
 	    });
+	    norseUtils.log('created item ' + title);
 	} catch( err ){
 
 	}
