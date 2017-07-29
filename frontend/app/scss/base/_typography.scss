@@ -1,0 +1,17 @@
+
+body {
+    color: $color-primary1;
+    font-family: $font-main-regular;
+    font-size: rem($body-font-size);
+    font-weight: $body-font-weight;
+    letter-spacing: $body-letter-spacing;
+    line-height: rem($body-line-height);
+    word-wrap: break-word;
+    position: relative;
+}
+
+a,
+button {	
+	cursor: pointer;
+    transition: all ease-out 0.5s;
+}

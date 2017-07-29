@@ -1,0 +1,35 @@
+.header-top {
+    background: $color-primary1;
+    color: $color-primary4;
+    padding: $space-m 0; 
+}
+
+.logo-block {
+    float: left;
+
+    h1 { 
+        font-family: $font-main-bold;
+        font-size: rem(30);
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 4px $color-primary2;
+    }
+}
+
+.menu {
+    float: right;
+
+    &-item {
+        border-bottom: 2px solid transparent;
+        font-weight: 600;
+        padding: $space-s;
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus, 
+        &:active {
+            border-color: $color-primary2;
+            color: $color-primary2;
+        }
+    }
+}
