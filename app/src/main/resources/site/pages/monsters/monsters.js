@@ -45,7 +45,7 @@ function handleGet(req) {
             for( var i = 0; i < monstersLinks.length; i++ ){
                 monstersLinks[i] = monstersLinks[i].replaceAll('\\"', '');
                 if( monstersLinks[i] != 'bestiary/creatures/skyweaver' ){
-                    dndToolsUtils.createCreature(getCreatureText( 'http://chisaipete.github.io/' + monstersLinks[i]));
+                    dndToolsUtils.createCreature(createCreature(getCreatureText( 'http://chisaipete.github.io/' + monstersLinks[i])));
                 }
             }
         }

@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var fontAwesome = require('node-font-awesome');
+//var fontAwesome = require('node-font-awesome');
 
-gulp.task('build', ['sass', 'images', 'fonts', 'fontawesome']);
+gulp.task('build', ['sass', 'images', 'fonts']);
 
 gulp.task('sass', function() {
   	return gulp.src('app/scss/**/*.scss')
@@ -20,10 +20,10 @@ gulp.task('fonts', function(){
 		.pipe(gulp.dest('../app/src/main/resources/site/assets/fonts'));
 });
  
-gulp.task('fontawesome', function() {
+/*gulp.task('fontawesome', function() {
   gulp.src(fontAwesome.fonts)
     .pipe(gulp.dest('../app/src/main/resources/site/assets/fonts'));
-});
+});*/
 
 gulp.task('watch', function(){
 	gulp.watch('app/**/*', ['build']);

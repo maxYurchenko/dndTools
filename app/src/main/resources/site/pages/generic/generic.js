@@ -48,7 +48,7 @@ function handleGet(req) {
     function generateCity( params ){
         var cityParams = {
             Name: 'Neverwinter',
-            Size: 'Metropolis',
+            Size: 'SCity',
             Dwarf: '8',
             Elf: '7',
             Gnome: '5',

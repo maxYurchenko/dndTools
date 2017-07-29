@@ -205,7 +205,7 @@ exports.createCreature = function( creature ){
 		contentLib.create({
 	        name: name.replace('/', ' or '),
 	        displayName: name,
-	        parentPath: '/dndTools/monsters',
+	        parentPath: '/dndtools/monsters',
 	        contentType: app.name + ':creature',
 	        data: creature
 	    });
@@ -228,6 +228,6 @@ exports.createItem = function( item ){
 	    });
 	    norseUtils.log('created item ' + title);
 	} catch( err ){
-
+		norseUtils.log(err);
 	}
 }
