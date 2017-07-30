@@ -1,1 +1,39 @@
-Header
+<header class="header">
+	<div class="header-top">
+		<div class="content-width ">
+			<div class="search-block">
+				<input class="input-search" type="search" placeholder="Look for something?">
+			</div>
+			<div class="user-action-list"
+			    <a class="user-action-item" href="#" title="Login">Login</a>
+			    <a class="user-action-item" href="#" title="Register">Register</a>
+			</div>
+		</div>
+	</div>
+	<div class="header-bottom">
+		<div class="content-width ">
+			<div class="logo-block">
+				<a title="logo" class="logo" href="#">D&D tools</a>
+			</div>
+			<menu class="menu">
+				<a href="#" class="menu-item" title="Monsters">Classes</a>
+				<a href="#" class="menu-item" title="Monsters">Races</a>
+				<a href="#" class="menu-item" title="Monsters">Spells</a>
+				<a href="#" class="menu-item" title="Items">Items</a>
+				<a href="#" class="menu-item active" title="Monsters">Bestiary</a>
+			</menu>
+		</div>
+	</div>
+	<div class="header-banner">
+		<div class="header-banner-img">
+			<img  data-th-src="${portal.assetUrl({'_path=/images/banner-1.jpg'})}" alt="" class="img-baner">
+		</div>
+		<div class="banner-content">
+			<div class="content-width">
+				<h1 class="banner-title">
+					Bestiary
+				</h1>
+			</div>
+		</div>
+	</div>
+</header>

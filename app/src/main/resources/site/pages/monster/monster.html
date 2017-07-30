@@ -4,55 +4,57 @@
 <head data-th-utext="${pageComponents.pagehead}"></head>
 
 <body>
-    <header data-th-utext="${pageComponents.header}" data-th-remove="tag"></header>
-    <main>
-    	<div>
-    		<h2 data-th-text="${content.displayName}"></h2>
-    		<div data-th-utext="${content.data.size}">
+    <div class="site-wrap">
+        <header data-th-utext="${pageComponents.header}" data-th-remove="tag"></header>
+        <main class="content-width">
+            <div>
+                <h2 data-th-text="${content.displayName}"></h2>
+                <div data-th-utext="${content.data.size}">
+                </div>
+                <div data-th-utext="${content.data.alignment}">
+                </div>
+                <div data-th-utext="${content.data.ac}">
+                </div>
+                <div data-th-utext="${content.data.armor}">
+                </div>
+                <div data-th-utext="${content.data.hp}">
+                </div>
+                <div data-th-utext="${content.data.hpDice}">
+                </div>
+                <div data-th-utext="${content.data.speed}">
+                </div>
+                <div data-th-utext="${content.data.str}">
+                </div>
+                <div data-th-utext="${content.data.dex}">
+                </div>
+                <div data-th-utext="${content.data.con}">
+                </div>
+                <div data-th-utext="${content.data.int}">
+                </div>
+                <div data-th-utext="${content.data.wis}">
+                </div>
+                <div data-th-utext="${content.data.cha}">
+                </div>
+                <div data-th-utext="${content.data.exp}">
+                </div>
+                <div data-th-utext="${content.data.cr}">
+                </div>
+                <div data-th-utext="${content.data.languages}">
+                </div>
+                <div data-th-utext="${content.data.senses}">
+                </div>
+                <div data-th-utext="${content.data.skills}">
+                </div>
+                <div data-th-each="stat: ${content.data.additionalStats}" data-th-remove="tag">
+                    <div data-th-text="${stat}"></div>
+                </div>
+                <div data-th-each="action: ${content.data.actions}" data-th-remove="tag">
+                    <div data-th-text="${action}"></div>
+                </div>
             </div>
-    		<div data-th-utext="${content.data.alignment}">
-            </div>
-    		<div data-th-utext="${content.data.ac}">
-            </div>
-    		<div data-th-utext="${content.data.armor}">
-            </div>
-    		<div data-th-utext="${content.data.hp}">
-            </div>
-    		<div data-th-utext="${content.data.hpDice}">
-            </div>
-    		<div data-th-utext="${content.data.speed}">
-            </div>
-    		<div data-th-utext="${content.data.str}">
-            </div>
-    		<div data-th-utext="${content.data.dex}">
-            </div>
-    		<div data-th-utext="${content.data.con}">
-            </div>
-    		<div data-th-utext="${content.data.int}">
-            </div>
-    		<div data-th-utext="${content.data.wis}">
-            </div>
-    		<div data-th-utext="${content.data.cha}">
-            </div>
-    		<div data-th-utext="${content.data.exp}">
-            </div>
-    		<div data-th-utext="${content.data.cr}">
-            </div>
-    		<div data-th-utext="${content.data.languages}">
-            </div>
-    		<div data-th-utext="${content.data.senses}">
-            </div>
-    		<div data-th-utext="${content.data.skills}">
-            </div>
-    		<div data-th-each="stat: ${content.data.additionalStats}" data-th-remove="tag">
-    			<div data-th-text="${stat}"></div>
-            </div>
-    		<div data-th-each="action: ${content.data.actions}" data-th-remove="tag">
-    			<div data-th-text="${action}"></div>
-            </div>
-    	</div>
-    </main>
-    <footer data-th-utext="${pageComponents.footer}" data-th-remove="tag"></footer>
+        </main>
+        <footer data-th-utext="${pageComponents.footer}" data-th-remove="tag"></footer>
+    </div>
 </body>
 
 </html>
