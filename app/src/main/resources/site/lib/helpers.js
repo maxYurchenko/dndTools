@@ -10,15 +10,12 @@ exports.getPageComponents = function( req ) {
   var siteConfig = portal.getSiteConfig();
   var content = portal.getContent();
 
-  try{
-    var menu = getMenu(norseUtils.forceArray(siteConfig.contentLocation));
-  } catch ( err ){
-    var menu = [];
-  }
+  var menu = getMenu(norseUtils.forceArray(siteConfig.contentLocation));
 
   pageComponents['header'] = thymeleaf.render( resolve('../pages/components/header.html'), {
     content: content,
-    site: site
+    site: site,
+    menu: menu
   } );
 
 
@@ -31,8 +28,14 @@ exports.getPageComponents = function( req ) {
   });  
 
   function getMenu( menuItems ){
-    norseUtils.log(menuItems);
-
+    var menu = [];
+    for( var i = 0; i < menuItems.length; i++ ){
+      menu.push({
+        url: portal.pageUrl({ id: menuItems[i]}),
+        title: contentLib.get({ key: menuItems[i].displayName })
+      });
+    }
+    return menu;
   }
 
   return pageComponents;  

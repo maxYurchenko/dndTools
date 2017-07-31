@@ -1,8 +1,9 @@
+12345
 <header class="header">
 	<div class="header-top">
 		<div class="content-width ">
 			<div class="search-block">
-				<input class="input-search" type="search" placeholder="Look for something?">
+				<input class="input-search" type="search" placeholder="Looking for something?">
 			</div>
 			<div class="user-action-list">
 			    <a class="user-action-item" href="#" data-th-attr="title=${portal.localize({'_key=global.login','_locale='+content.language})}" title="Login" data-th-text="${portal.localize({'_key=global.login','_locale='+content.language})}">Login</a>
@@ -16,11 +17,7 @@
 				<a title="logo" class="logo" href="/" data-th-href="${portal.pageUrl({'_path=' + site._path})}">D&D tools</a>
 			</div>
 			<menu class="menu">
-				<a href="#" class="menu-item" title="Monsters">Classes</a>
-				<a href="#" class="menu-item" title="Monsters">Races</a>
-				<a href="#" class="menu-item" title="Monsters">Spells</a>
-				<a href="#" class="menu-item" title="Items" data-th-text="${portal.localize({'_key=global.items','_locale='+content.language})}">Items</a>
-				<a href="#" class="menu-item active" title="Monsters" data-th-text="${portal.localize({'_key=global.bestiary','_locale='+content.language})}">Bestiary</a>
+				<a data-th-each="menuItem: ${menu}" href="#" class="menu-item" data-th-href="${menuItem.url}" title="title" data-th-attr="title={menuItem.title}">Menu item name</a>
 			</menu>
 		</div>
 	</div>
