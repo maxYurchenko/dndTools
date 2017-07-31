@@ -33,5 +33,11 @@
       <label>Description</label>
       <occurrences minimum="0" maximum="0"/>
     </input>
+    <input name="cityImage" type="ImageSelector">
+      <label>City image</label>
+      <occurrences minimum="0" maximum="1"/>
+      <config>
+      </config>
+    </input>
   </form>
 </content-type>

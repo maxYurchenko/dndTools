@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
   <config>
+  	<item-set name="contentLocation">
+	  <label>Content location</label>
+	  <items>
+	  	<input name="itemsLocation" type="ContentSelector">
+			<label>Items' location</label>
+			<occurrences minimum="1" maximum="1"/>
+			<config>
+			</config>
+		</input>
+	  	<input name="monstersLocation" type="ContentSelector">
+			<label>Monsters' location</label>
+			<occurrences minimum="1" maximum="1"/>
+			<config>
+			</config>
+		</input>
+	  	<input name="citiesLocation" type="ContentSelector">
+			<label>Cities' location</label>
+			<occurrences minimum="1" maximum="1"/>
+			<config>
+			</config>
+		</input>
+	  </items>
+	  <occurrences minimum="1" maximum="1"/>
+	</item-set>
   </config>
 </site>

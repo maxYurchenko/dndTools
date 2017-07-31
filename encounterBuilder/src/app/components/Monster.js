@@ -12,23 +12,28 @@ class Monster extends React.Component {
 	      		data: {}
 	      	},
 	      	hpValue: 0,
-	      	hpInputValue: ''
+	      	hpInputValue: '',
+	      	note: '',
+	      	current: false
 	    }
 	    this.changeHP = this.changeHP.bind(this);
 	    this.updateHPInputValue = this.updateHPInputValue.bind(this);
+	    this.changeNote = this.changeNote.bind(this);
   	}
 
 	componentDidMount() {
 		this.setState({ 
 			monster: this.props.monster,
-	      	hpValue: parseInt(this.props.monster.data.hp)
+	      	hpValue: parseInt(this.props.monster.data.hp),
+	      	current: this.props.current
 		});
 	}
 
 	componentWillReceiveProps(newProps) {
 		this.setState({ 
 			monster: newProps.monster,
-	      	hpValue: parseInt(newProps.monster.data.hp)
+	      	hpValue: parseInt(newProps.monster.data.hp),
+	      	current: newProps.current
 		});
 	}
 
@@ -47,14 +52,27 @@ class Monster extends React.Component {
   		});
   	}
 
-  	render() {   
+  	changeNote( e ){
+  		this.setState({
+  			note: e.target.value
+  		});
+  	}
+
+  	render() {  
+  		var style = {};
+  		if( this.state.current ){
+  			style = {
+  				background: 'red'
+  			};
+  		}
 	    return (
-	      	<div>
+	      	<div style={style}>
 	          	<span>Name: {this.state.monster.displayName}</span>
 	          	<span> Init: {this.state.monster.data.initiative}</span>
 	          	<span> AC: {this.state.monster.data.ac}</span>
 	          	<span> HP: {this.state.hpValue}</span>
-	          	<input value={this.state.hpInputValue} type="text" onBlur={this.changeHP} onChange={this.updateHPInputValue}/>
+	          	<input value={this.state.hpInputValue} type="text" onChange={this.updateHPInputValue}/>
+	          	<input value={this.state.note} type="text" onChange={this.changeNote}/>
 	      	</div>
 	    );
   	}

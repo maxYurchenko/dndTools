@@ -11,8 +11,9 @@ class Battle extends React.Component {
     this.state = {
       monsters: [],
       hpValue: [],
+      currentFighter: 0
     }
-    this.changeHP = this.changeHP.bind(this);
+    this.handleNext = this.handleNext.bind(this);
   }
 
   componentDidMount(){
@@ -21,8 +22,16 @@ class Battle extends React.Component {
     }, ()=>{
     });
   }
-  changeHP( e ){
-    var temp = this.state.monsters;
+  handleNext( e ){
+    if( this.state.currentFighter >= this.state.monsters.length - 1 ){
+      this.setState({
+        currentFighter: 0
+      });
+    } else {
+      this.setState({
+        currentFighter: this.state.currentFighter + 1
+      });
+    }
   }
 
   render() {   
@@ -30,9 +39,13 @@ class Battle extends React.Component {
       <div>
         Battle!
         {this.state.monsters.map((monster,key) => {
+          var current = false;
+          if( this.state.currentFighter == key ){
+            current = true; 
+          }
           return (
             <div key={key}>
-              <Monster monster={monster} />
+              <Monster current={current} monster={monster} />
             </div>
           )
         })}

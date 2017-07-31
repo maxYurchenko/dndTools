@@ -4,23 +4,23 @@
 			<div class="search-block">
 				<input class="input-search" type="search" placeholder="Look for something?">
 			</div>
-			<div class="user-action-list"
-			    <a class="user-action-item" href="#" title="Login">Login</a>
-			    <a class="user-action-item" href="#" title="Register">Register</a>
+			<div class="user-action-list">
+			    <a class="user-action-item" href="#" data-th-attr="title=${portal.localize({'_key=global.login','_locale='+content.language})}" title="Login" data-th-text="${portal.localize({'_key=global.login','_locale='+content.language})}">Login</a>
+			    <a class="user-action-item" href="#" data-th-attr="title=${portal.localize({'_key=global.register','_locale='+content.language})}" data-th-text="${portal.localize({'_key=global.register','_locale='+content.language})}">Register</a>
 			</div>
 		</div>
 	</div>
 	<div class="header-bottom">
 		<div class="content-width ">
 			<div class="logo-block">
-				<a title="logo" class="logo" href="#">D&D tools</a>
+				<a title="logo" class="logo" href="/" data-th-href="${portal.pageUrl({'_path=' + site._path})}">D&D tools</a>
 			</div>
 			<menu class="menu">
 				<a href="#" class="menu-item" title="Monsters">Classes</a>
 				<a href="#" class="menu-item" title="Monsters">Races</a>
 				<a href="#" class="menu-item" title="Monsters">Spells</a>
-				<a href="#" class="menu-item" title="Items">Items</a>
-				<a href="#" class="menu-item active" title="Monsters">Bestiary</a>
+				<a href="#" class="menu-item" title="Items" data-th-text="${portal.localize({'_key=global.items','_locale='+content.language})}">Items</a>
+				<a href="#" class="menu-item active" title="Monsters" data-th-text="${portal.localize({'_key=global.bestiary','_locale='+content.language})}">Bestiary</a>
 			</menu>
 		</div>
 	</div>

@@ -12,15 +12,18 @@
       <occurrences minimum="1" maximum="1"/>
     </input>
     <input name="type" type="TextLine">
-      <label>Item type</label>
+      <label>Type</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
     <input name="typeNote" type="TextLine">
-      <label>Item type note</label>
+      <label>Type note</label>
       <occurrences minimum="0" maximum="1"/>
     </input>
     <input name="text" type="HtmlArea">
-      <label>Item body</label>
+      <label>Body</label>
+    </input>
+    <input name="price" type="HtmlArea">
+      <label>Price</label>
     </input>
   </form>
 </content-type>
