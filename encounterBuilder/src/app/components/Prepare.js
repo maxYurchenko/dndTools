@@ -81,7 +81,9 @@ class Prepare extends React.Component {
 
 export default Prepare;
 
-const monsters = [{
+const monsters = monstersFullList;
+
+/*[{
   "_id": "4771d50b-d945-42bc-acdf-08a4e6115255",
   "_name": "Awakened Shrub",
   "_path": "/test/monsters/Awakened Shrub",
@@ -547,4 +549,4 @@ const monsters = [{
   "page": {},
   "attachments": {},
   "publish": {}
-}];
+}];*/

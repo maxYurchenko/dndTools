@@ -24,21 +24,21 @@ function handleGet(req) {
     }
 
     function createModel() {
+        var up = req.params;
+        var content = portal.getContent();
+
         var monsters = contentLib.query({
             query: '',
-            start: 0,
-            count: 99999999,
             contentTypes: [
                 app.name + ":creature"
             ],
+            count: 99999999999
         }).hits;
-
-        var up = req.params;
-        var content = portal.getContent();
                         
         var model = {
             content: content,
             pageComponents: helpers.getPageComponents( req ),
+            monsters: monsters,
             app: app
         };
 
