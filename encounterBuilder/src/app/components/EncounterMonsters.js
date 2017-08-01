@@ -20,7 +20,6 @@ class EncounterMonsters extends React.Component {
 		this.setState({ 
 			selectedMonsters: newProps.selectedMonsters,
 			totalExp: totalExp
-		}, ()=>{
 		});
 	}
 

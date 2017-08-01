@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import Prepare from '../components/Prepare';
 import Battle from '../components/Battle';
 import { Switch, Route } from 'react-router-dom';
@@ -10,16 +9,31 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      selectedMonsters: []
+      selectedMonsters: [],
+      prepare: true
     }
+    this.startBattle = this.startBattle.bind(this);
+    this.monstersModified = this.monstersModified.bind(this);
+  }
+  
+  monstersModified( selectedMonsters ){
+    this.setState({
+      selectedMonsters: selectedMonsters
+    });
   }
 
-  render() {   
+  startBattle(){
+    this.setState({
+      prepare: !this.state.prepare
+    });
+  }
+
+  render() {
     return (
-      <Switch>
-        <Route exact path='/' component={Prepare}/>
-        <Route path='/battle' component={Battle}/>
-      </Switch>
+      <div>
+        <Prepare active={this.state.prepare} callbackParent={this.monstersModified} startBattle={this.startBattle} />
+        <Battle active={!this.state.prepare} selectedMonsters={this.state.selectedMonsters} />
+      </div>
     );
   }
 }

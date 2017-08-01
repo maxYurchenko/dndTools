@@ -1,17 +1,21 @@
 const webpack = require('webpack');
 const path = require('path');
-const buildPath = path.resolve('build');
+const buildPath = path.resolve('/home/myurchenko/projects/dndTools/app/src/main/resources/site/assets/encounter');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 
 const config = {
   entry: [path.join(__dirname, '/src/app/index.js')],
   // Render source-map file for final build
-  devtool: 'source-map',
+  devtool: 'eval',
   // output config
   output: {
     path: buildPath, // Path of output file
     filename: 'index.js', // Name of output file
+  },
+  resolve: {
+    modulesDirectories: ['node_modules', './src'],
+    extensions: ['', '.js', '.jsx']
   },
   plugins: [
     // Minify the bundle

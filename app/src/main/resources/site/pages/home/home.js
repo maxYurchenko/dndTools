@@ -12,7 +12,7 @@ function handleGet(req) {
     var me = this;
 
     function renderView() {
-        var view = resolve('generic.html');
+        var view = resolve('home.html');
         var model = createModel();
         var body = thymeleaf.render(view, model);
          // Return the result
@@ -47,8 +47,8 @@ function handleGet(req) {
 
     function generateCity( params ){
         var cityParams = {
-            Name: 'Neverwinter',
-            Size: 'SCity',
+            Name: "Baldurs gate",
+            Size: 'Metropolis',
             Dwarf: '8',
             Elf: '7',
             Gnome: '5',

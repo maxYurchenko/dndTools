@@ -11,16 +11,10 @@ class Battle extends React.Component {
     this.state = {
       monsters: [],
       hpValue: [],
-      currentFighter: 0
+      currentFighter: 0,
+      active: false
     }
     this.handleNext = this.handleNext.bind(this);
-  }
-
-  componentDidMount(){
-    this.setState({
-      monsters: this.props.location.state.monsters
-    }, ()=>{
-    });
   }
   handleNext( e ){
     if( this.state.currentFighter >= this.state.monsters.length - 1 ){
@@ -34,7 +28,17 @@ class Battle extends React.Component {
     }
   }
 
-  render() {   
+  componentWillReceiveProps( newProps ){
+    this.setState({
+      active: newProps.active,
+      monsters: newProps.selectedMonsters
+    });
+  }
+
+  render() {  
+    if( !this.state.active ){
+      return null;
+    } 
     return (
       <div>
         Battle!

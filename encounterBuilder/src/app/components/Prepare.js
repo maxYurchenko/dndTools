@@ -12,16 +12,26 @@ class Prepare extends React.Component {
     super();
     this.state = {
       monsters: monsters,
-      selectedMonsters: []
+      selectedMonsters: [],
+      active: true
     }
     this.monstersModified = this.monstersModified.bind(this);
     this.prepareBattle = this.prepareBattle.bind(this);
+    this.startBattle = this.startBattle.bind(this);
   }
   
   monstersModified( selectedMonsters ){
   	this.prepareBattle();
     this.setState({
       selectedMonsters: selectedMonsters
+    }, () =>{
+      this.props.callbackParent(this.state.selectedMonsters);
+    });
+  }
+
+  componentWillReceiveProps( newProps ){
+    this.setState({
+      active: newProps.active
     });
   }
 
@@ -47,7 +57,14 @@ class Prepare extends React.Component {
     });
   }
 
-  render() {   
+  startBattle(){
+    this.props.startBattle();
+  }
+
+  render() {  
+    if( !this.state.active ){
+      return null;
+    } 
     return (
       <div>
         <div>
@@ -56,7 +73,7 @@ class Prepare extends React.Component {
         <div>
           <EnemyTable enemies={this.state.monsters} callbackParent={this.monstersModified} />
         </div>
-        <Link to={{pathname: '/battle', state: {monsters: this.state.selectedMonsters}}}>Battle</Link>
+        <button onClick={this.startBattle}>Battle!</button>
       </div>
     );
   }

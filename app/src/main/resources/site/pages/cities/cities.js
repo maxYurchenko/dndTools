@@ -12,7 +12,7 @@ function handleGet(req) {
     var me = this;
 
     function renderView() {
-        var view = resolve('encounterBuilder.html');
+        var view = resolve('cities.html');
         var model = createModel();
         var body = thymeleaf.render(view, model);
          // Return the result
@@ -24,25 +24,21 @@ function handleGet(req) {
     }
 
     function createModel() {
-        var monsters = contentLib.query({
-            query: '',
-            start: 0,
-            count: 99999999,
-            contentTypes: [
-                app.name + ":creature"
-            ],
-        }).hits;
 
         var up = req.params;
         var content = portal.getContent();
+        var response = [];
+
                         
         var model = {
-            content: content,
             pageComponents: helpers.getPageComponents( req ),
+            content: content,
             app: app
         };
 
         return model;
+
+
     }
 
     return renderView();

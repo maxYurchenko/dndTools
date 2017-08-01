@@ -71,7 +71,7 @@ class Monster extends React.Component {
 	          	<span> Init: {this.state.monster.data.initiative}</span>
 	          	<span> AC: {this.state.monster.data.ac}</span>
 	          	<span> HP: {this.state.hpValue}</span>
-	          	<input value={this.state.hpInputValue} type="text" onChange={this.updateHPInputValue}/>
+	          	<input value={this.state.hpInputValue} type="text" onChange={this.updateHPInputValue} onBlur={this.changeHP}/>
 	          	<input value={this.state.note} type="text" onChange={this.changeNote}/>
 	      	</div>
 	    );

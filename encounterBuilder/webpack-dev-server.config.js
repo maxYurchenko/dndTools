@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-const buildPath = path.resolve(__dirname, 'build');
-const nodeModulesPath = path.resolve(__dirname, 'node_modules');
+const buildPath = path.resolve('/home/myurchenko/projects/dndTools/encounterBuilder/build');
+const nodeModulesPath = path.resolve('/home/myurchenko/projects/dndTools/encounterBuilder/node_modules');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 
 const config = {
@@ -9,7 +9,7 @@ const config = {
   entry: [
     'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',
-    path.join(__dirname, '/src/app/index.js'),
+    path.join('/home/myurchenko/projects/dndTools/encounterBuilder/src/app'),
   ],
   // Server Configuration options
   devServer: {
@@ -33,7 +33,7 @@ const config = {
     // Moves files
     new TransferWebpackPlugin([
       {from: 'www'},
-    ], path.resolve(__dirname, 'src')),
+    ], path.resolve('/home/myurchenko/projects/dndTools/encounterBuilder/src')),
   ],
   module: {
     loaders: [

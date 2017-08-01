@@ -10,7 +10,7 @@ exports.getPageComponents = function( req ) {
   var siteConfig = portal.getSiteConfig();
   var content = portal.getContent();
 
-  var menu = getMenu(norseUtils.forceArray(siteConfig.contentLocation));
+  var menu = getMenu(norseUtils.forceArray(siteConfig.menuItems));
 
   pageComponents['header'] = thymeleaf.render( resolve('../pages/components/header.html'), {
     content: content,
@@ -29,10 +29,10 @@ exports.getPageComponents = function( req ) {
 
   function getMenu( menuItems ){
     var menu = [];
-    for( var i = 0; i < menuItems.length; i++ ){
+    for ( var i = 0; i < menuItems.length; i++ ) {
       menu.push({
         url: portal.pageUrl({ id: menuItems[i]}),
-        title: contentLib.get({ key: menuItems[i].displayName })
+        title: contentLib.get({ key: menuItems[i] }).displayName
       });
     }
     return menu;
