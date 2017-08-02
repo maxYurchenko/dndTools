@@ -1,6 +1,6 @@
-const webpack = require('webpack');
 const path = require('path');
-const buildPath = path.resolve('/home/myurchenko/projects/dndTools/app/src/main/resources/site/assets/encounter');
+const webpack = require('webpack');
+const buildPath = path.resolve('../app/src/main/resources/site/assets/encounter');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 
