@@ -2,3 +2,38 @@
 	background-image: url(../images/paper-1.jpg);
 	background-size: cover;
 }
+
+input, 
+select, 
+textarea {
+	padding: $space-s $space-m;
+	background: $color-primary4;
+	border-radius: 6px;
+	border: 1px solid $color-primary5;
+	color: inherit;
+	margin-bottom: $space-m;
+	width: 100%;
+}
+
+button,
+input,
+a {	
+    outline:none;
+}
+
+table {
+    background: white;
+    margin: $space-m 0;
+    text-align: center;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid $color-primary6;
+    padding: $space-s;
+}
+
+th {
+    background: $color-primary5;
+    text-transform: uppercase; 
+}

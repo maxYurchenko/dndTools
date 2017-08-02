@@ -1,35 +1,36 @@
-<header class="header">
-	<div class="header-top">
-		<div class="content-width ">
-			<div class="search-block">
-				<input class="input-search" type="search" placeholder="Looking for something?">
-			</div>
-			<div class="user-action-list">
-			    <a class="user-action-item" href="#" data-th-attr="title=${portal.localize({'_key=global.login','_locale='+content.language})}" title="Login" data-th-text="${portal.localize({'_key=global.login','_locale='+content.language})}">Login</a>
-			    <a class="user-action-item" href="#" data-th-attr="title=${portal.localize({'_key=global.register','_locale='+content.language})}" data-th-text="${portal.localize({'_key=global.register','_locale='+content.language})}">Register</a>
-			</div>
-		</div>
-	</div>
-	<div class="header-bottom">
-		<div class="content-width ">
-			<div class="logo-block">
-				<a title="logo" class="logo" href="/" data-th-href="${portal.pageUrl({'_path=' + site._path})}">D&D tools</a>
-			</div>
-			<menu class="menu">
-				<a data-th-each="menuItem: ${menu}" href="#" data-th-text="${menuItem.title}" class="menu-item" data-th-href="${menuItem.url}" title="title" data-th-attr="title=${menuItem.title}">Menu item name</a>
-			</menu>
-		</div>
-	</div>
-	<div class="header-banner">
-		<div class="header-banner-img">
-			<img  data-th-src="${portal.assetUrl({'_path=/images/banner-1.jpg'})}" alt="" class="img-baner">
-		</div>
-		<div class="banner-content">
-			<div class="content-width">
-				<h1 class="banner-title">
-					Bestiary
-				</h1>
+<div class="site-wrap">
+	<header class="header">
+		<div class="header-top">
+			<div class="content-width ">
+				<div class="search-block">
+					<input class="input-search" type="search" placeholder="Looking for something?">
+				</div>
+				<div class="user-action-list">
+				    <a class="user-action-item" href="#" data-th-attr="title=${portal.localize({'_key=global.login','_locale='+content.language})}" title="Login" data-th-text="${portal.localize({'_key=global.login','_locale='+content.language})}">Login</a>
+				    <a class="user-action-item" href="#" data-th-attr="title=${portal.localize({'_key=global.register','_locale='+content.language})}" data-th-text="${portal.localize({'_key=global.register','_locale='+content.language})}">Register</a>
+				</div>
 			</div>
 		</div>
-	</div>
-</header>
+		<div class="header-bottom">
+			<div class="content-width ">
+				<div class="logo-block">
+					<a title="logo" class="logo" href="/" data-th-href="${portal.pageUrl({'_path=' + site._path})}">D&D tools</a>
+				</div>
+				<menu class="menu">
+					<a data-th-each="menuItem: ${menu}" href="#" data-th-text="${menuItem.title}" class="menu-item" data-th-href="${menuItem.url}" title="title" data-th-attr="title=${menuItem.title}">Menu item name</a>
+				</menu>
+			</div>
+		</div>
+		<div class="header-banner">
+			<div class="header-banner-img">
+				<img  data-th-src="${portal.assetUrl({'_path=/images/banner-1.jpg'})}" alt="" class="img-baner">
+			</div>
+			<div class="banner-content">
+				<div class="content-width">
+					<h1 class="banner-title">
+						Bestiary
+					</h1>
+				</div>
+			</div>
+		</div>
+	</header>

@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom';
 class EncounterMonsters extends React.Component {
 
 	constructor(props){
-	    super();
-	    this.state = {
+		super();
+		this.state = {
 			monsters: props.monsters,
 			selectedMonsters: [],
 			totalExp: 0
-	    }
+		}
 	}
 
 	componentWillReceiveProps(newProps) {
@@ -53,39 +53,44 @@ class EncounterMonsters extends React.Component {
 		});
 	}
 
-  	render() {
-    	return (
-		  	<div>
-		  		<div>Total exp: {this.state.totalExp}</div>
-		  		<table>
-		  			<thead></thead>
-		  			<tbody>
-			  		{this.state.selectedMonsters.map((monster,key) => {
-		      		return (
-		      			<tr key={key}>
-			      			<td>
-			      				<a onClick={() => this.removeEnemy(monster)}>Remove</a>
-			      			</td>
-			      			<td>
-			      				<a onClick={() => this.addEnemy(monster)}>Add</a>
-			      			</td>
-			      			<td>
-			      				{monster.displayName}
-			      			</td>
-			      			<td>
-			      				{monster.data.cr}
-			      			</td>
-			      			<td>
-			      				{monster.data.exp}
-			      			</td>
-		      			</tr>
-			          	)
-		        	})}
-		        	</tbody>
-	        	</table>
-		  	</div>
-    	)
-  	}
+	render() {
+		return (
+			<div className="max-lolka">
+				<div>Total exp: {this.state.totalExp}</div>
+				<table>
+					<thead>
+						<th colSpan="2">Actions</th>
+						<th>Monster</th>
+						<th>CR</th>
+						<th>Experience</th>
+					</thead>
+					<tbody>
+					{this.state.selectedMonsters.map((monster,key) => {
+					return (
+						<tr key={key}>
+							<td>
+								<button className="button-primary" onClick={() => this.removeEnemy(monster)}>Remove</button>
+							</td>
+							<td>
+								<button className="button-primary" onClick={() => this.addEnemy(monster)}>Add</button>
+							</td>
+							<td>
+								{monster.displayName}
+							</td>
+							<td>
+								{monster.data.cr}
+							</td>
+							<td>
+								{monster.data.exp}
+							</td>
+						</tr>
+						)
+					})}
+					</tbody>
+				</table>
+			</div>
+		)
+	}
 }
 
 export default EncounterMonsters;

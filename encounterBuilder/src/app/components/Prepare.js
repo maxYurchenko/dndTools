@@ -67,12 +67,8 @@ class Prepare extends React.Component {
     } 
     return (
       <div>
-        <div>
           <EncounterMonsters enemies={this.state.monsters} selectedMonsters={this.state.selectedMonsters} />
-        </div>
-        <div>
           <EnemyTable enemies={this.state.monsters} callbackParent={this.monstersModified} />
-        </div>
         <button onClick={this.startBattle}>Battle!</button>
       </div>
     );

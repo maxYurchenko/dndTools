@@ -10,3 +10,19 @@
         clear: both;
     }
 }
+
+%button-primary,
+.button-primary {
+	padding: $space-s/2 $space-m;
+    background: $color-primary2;
+    border-radius: $space-s/2;
+    border: 2px solid $color-primary2;
+    color: $color-primary4;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover {
+		background: $color-primary1;
+		border-color: $color-primary1;
+    }
+}
