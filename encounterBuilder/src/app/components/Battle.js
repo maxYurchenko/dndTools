@@ -15,6 +15,8 @@ class Battle extends React.Component {
       active: false
     }
     this.handleNext = this.handleNext.bind(this);
+    this.editBattle = this.editBattle.bind(this);
+    this.monsterChanged = this.monsterChanged.bind(this);
   }
   handleNext( e ){
     if( this.state.currentFighter >= this.state.monsters.length - 1 ){
@@ -29,9 +31,27 @@ class Battle extends React.Component {
   }
 
   componentWillReceiveProps( newProps ){
+    let temp = newProps.selectedMonsters;
+    for( let i = 0; i < temp.length; i++ ){
+      if( !temp[i].data.initiative || temp[i].data.initiative == '' ){
+        temp.splice(i, 1);
+      }
+    }
     this.setState({
       active: newProps.active,
       monsters: newProps.selectedMonsters
+    });
+  }
+
+  editBattle(){
+    this.props.editBattle();
+  }
+
+  monsterChanged( monster, key ){
+    let temp = this.state.monsters;
+    temp[key] = monster;
+    this.setState({
+      monsters: temp
     });
   }
 
@@ -49,11 +69,12 @@ class Battle extends React.Component {
           }
           return (
             <div key={key}>
-              <Monster current={current} monster={monster} />
+              <Monster arrPosition={key} current={current} monster={monster} callbackParent={this.monsterChanged} />
             </div>
           )
         })}
         <button onClick={this.handleNext}>Next</button>
+        <button onClick={this.editBattle}>Edit</button>
       </div>
     );
   }

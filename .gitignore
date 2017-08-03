@@ -6,3 +6,4 @@ app/src/main/resources/site/assets/
 encounterBuilder/node_modules
 encounterBuilder/build
 frontend/node_modules
+encounterBuilder/npm-debug.log

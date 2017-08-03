@@ -13,32 +13,21 @@ class EnemyTable extends React.Component {
             currPage: 1,
             maxPages: 0,
             currMonsters: [],
-            pagination: []
+            filteredMonsters: [],
+            pagination: [],
+            pageSize: 10
         }
         this.addEnemy = this.addEnemy.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.buildPagination = this.buildPagination.bind(this);
         this.changePage = this.changePage.bind(this);
-    }
-
-    updateSearch( e ){
-        let temp = this.state.monsters;
-        for( let i = 0; i < temp.length; i++ ){
-            if( temp[i].displayName.toLowerCase().indexOf(e.target.value.toLowerCase()) == -1 ){
-                temp[i].show = false;
-            }else{
-                temp[i].show = true;
-            }
-        }
-        this.setState({
-            searchValue: e.target.value,
-            monsters: temp
-        });
+        this.nextPrevChange = this.nextPrevChange.bind(this);
     }
 
     componentWillReceiveProps(newProps) {
         this.setState({ 
             monsters: newProps.enemies,
+            filteredMonsters: newProps.enemies,
             maxPages: Math.ceil(newProps.enemies.length / 10)
         }, () => {
             this.buildPagination();
@@ -48,32 +37,59 @@ class EnemyTable extends React.Component {
     componentDidMount(){
         this.setState({ 
             monsters: this.props.enemies,
+            filteredMonsters: this.props.enemies,
             maxPages: Math.ceil(this.props.enemies.length / 10)
         }, () => {
             this.buildPagination();
         });
     }
 
-    addEnemy( monster ){
+    updateSearch( e ){
+        let temp = this.state.monsters;
+        let filteredMonsters = [];
+        for( let i = 0; i < temp.length; i++ ){
+            if( temp[i].displayName.toLowerCase().indexOf(e.target.value.toLowerCase()) == -1 ){
+                temp[i].show = false;
+            }else{
+                temp[i].show = true;
+                filteredMonsters.push(temp[i]);
+            }
+        }
         this.setState({
-            monsterIds: this.state.monstersIds.push(monster)
+            searchValue: e.target.value,
+            monsters: temp,
+            filteredMonsters: filteredMonsters
+        }, () => {
+            this.buildPagination();
         });
-        this.props.callbackParent(this.state.monstersIds);
     }
 
     buildPagination(){
         let temp = [];
-        for( var i = (this.state.currPage - 1) * 10; i < (this.state.currPage) * 10; i++){
-            if( this.state.monsters[i] == undefined ){
+        for( let i = (this.state.currPage - 1) * 10; i < this.state.filteredMonsters.length; i++){
+            if( this.state.filteredMonsters[i] == undefined ){
                 break;
             }
-            temp.push(this.state.monsters[i]);
+            if( temp.length >= 10 ){
+                break;
+            }
+            if( this.state.filteredMonsters[i].show == false ){
+                continue;
+            }
+            temp.push(this.state.filteredMonsters[i]);
         }
         this.setState({
-            currMonsters: temp
+            currMonsters: temp,
+            maxPages: Math.ceil(this.state.filteredMonsters.length / 10)
         }, () => {
             let pagination = [];
-            for( let i = 0; i < this.state.maxPages; i++ ){
+            for( let i = this.state.currPage - 3; i < this.state.currPage + 3; i++ ){
+                if( i < 0 ){
+                    continue;
+                }
+                if( i >= this.state.maxPages){
+                    break;
+                }
                 pagination.push(i);
             }
             this.setState({
@@ -90,6 +106,23 @@ class EnemyTable extends React.Component {
         });
     }
 
+    addEnemy( monster ){
+        this.setState({
+            monsterIds: this.state.monstersIds.push(monster)
+        });
+        this.props.callbackParent(this.state.monstersIds);
+    }
+
+    nextPrevChange( page ){
+        if( this.state.currPage + parseInt(page) < this.state.maxPages + 1 && this.state.currPage + parseInt(page) > 0 ){
+            this.setState({
+                currPage: this.state.currPage + parseInt(page)
+            }, () => {
+                this.buildPagination();
+            });
+        }
+    }
+
     render() {
         return (
             <div className="fight-builder-block">
@@ -103,9 +136,6 @@ class EnemyTable extends React.Component {
                     </thead>
                     <tbody>
                     {this.state.currMonsters.map((monster,key) => {
-                    if( monster.show == false ){
-                        return ;
-                    }
                     return (
                         <tr key={key}>
                             <td>
@@ -126,11 +156,13 @@ class EnemyTable extends React.Component {
                     </tbody>
                 </table>
                 <div className="pagination-list">
+                    <button className="pagination-item" onClick={() => this.nextPrevChange("-1")}>Previous</button>
                     {this.state.pagination.map((page) => {
                     return (
                         <button className="pagination-item" key={page} onClick={() => this.changePage(page)}>{page + 1}</button>
                         )
                     })}
+                    <button className="pagination-item" onClick={() => this.nextPrevChange("1")}>Next</button>
                 </div>
             </div>
         )

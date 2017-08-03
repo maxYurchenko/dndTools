@@ -32,7 +32,7 @@ class App extends React.Component {
     return (
       <div>
         <Prepare active={this.state.prepare} callbackParent={this.monstersModified} startBattle={this.startBattle} />
-        <Battle active={!this.state.prepare} selectedMonsters={this.state.selectedMonsters} />
+        <Battle active={!this.state.prepare} selectedMonsters={this.state.selectedMonsters} editBattle={this.startBattle} />
       </div>
     );
   }

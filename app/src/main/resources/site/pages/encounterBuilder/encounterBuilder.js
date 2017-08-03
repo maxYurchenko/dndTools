@@ -34,11 +34,20 @@ function handleGet(req) {
             ],
             count: 99999999999
         }).hits;
+
+        var players = contentLib.query({
+            query: '',
+            contentTypes: [
+                app.name + ":player"
+            ],
+            count: 99999999999
+        }).hits;
                         
         var model = {
             content: content,
             pageComponents: helpers.getPageComponents( req ),
             monsters: monsters,
+            players: players,
             app: app
         };
 

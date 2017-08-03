@@ -29,19 +29,24 @@ class Monster extends React.Component {
 		});
 	}
 
-	componentWillReceiveProps(newProps) {
+	/*componentWillReceiveProps(newProps) {
 		this.setState({ 
 			monster: newProps.monster,
 	      	hpValue: parseInt(newProps.monster.data.hp),
 	      	current: newProps.current
 		});
-	}
+	}*/
 
   	changeHP( e ){
+  		let temp = this.state.monster;
   		if( e.target.value.match(/[\+-]?[0-9]+/g) && e.target.value.match(/[\+-]?[0-9]+/g)[0] ){
+  			temp.data.hp = this.state.hpValue + parseInt(e.target.value);
 	    	this.setState({
 	    		hpValue: this.state.hpValue + parseInt(e.target.value),
-	    		hpInputValue: ''
+	    		hpInputValue: '',
+	    		monster: temp
+	    	}, () => {
+	    		this.props.callbackParent(this.state.monster, this.props.arrPosition);
 	    	});
 	    }
   	}
