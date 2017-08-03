@@ -31,8 +31,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Prepare active={this.state.prepare} callbackParent={this.monstersModified} startBattle={this.startBattle} />
-        <Battle active={!this.state.prepare} selectedMonsters={this.state.selectedMonsters} editBattle={this.startBattle} />
+        <Prepare active={this.state.prepare} callbackParent={this.monstersModified} startBattle={this.startBattle} encounter={this.state.selectedMonsters} />
+        <Battle active={!this.state.prepare} callbackParent={this.monstersModified} selectedMonsters={this.state.selectedMonsters} editBattle={this.startBattle} />
       </div>
     );
   }

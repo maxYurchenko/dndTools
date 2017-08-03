@@ -52,6 +52,8 @@ class Battle extends React.Component {
     temp[key] = monster;
     this.setState({
       monsters: temp
+    }, () => {
+      this.props.callbackParent(this.state.monsters);
     });
   }
 
