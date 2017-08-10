@@ -13,16 +13,32 @@
 
 %button-primary,
 .button-primary {
-	padding: $space-s/2 $space-m;
     background: $color-primary2;
     border-radius: $space-s/2;
     border: 2px solid $color-primary2;
     color: $color-primary4;
     font-weight: bold;
+    min-width: 130px;
+    padding: $space-s $space-m;
     text-transform: uppercase;
 
     &:hover {
-		background: $color-primary1;
-		border-color: $color-primary1;
+		background: $color-primary4;
+		color: $color-primary2;
+    }
+}
+
+%button-secondary,
+.button-secondary {
+    background: $color-primary2;
+    border-radius: $space-s/2;
+    border: 0;
+    color: $color-primary1;
+    padding: $space-s $space-m;
+    text-transform: uppercase;
+
+    &:hover {
+        background: $color-primary1;
+        color: $color-primary4;
     }
 }

@@ -15,7 +15,7 @@ class Player extends React.Component {
   	}
 
     componentDidMount(){
-        this.setState({ 
+        this.setState({
             player: this.props.player
         });
     }
@@ -32,13 +32,13 @@ class Player extends React.Component {
 
     }
 
-  	render() {  
+  	render() {
 	    return (
             <tr>
-                <td>
-                    <input value={this.state.initiative} onChange={this.updateInitiative}/>
+                <td className="player-initative">
+                    <input className="text-input" placeholderName="Enter your initiative" value={this.state.initiative} onChange={this.updateInitiative}/>
                 </td>
-                <td>
+                <td className="player-name">
                     {this.state.player.displayName}
                 </td>
             </tr>

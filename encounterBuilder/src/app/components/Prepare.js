@@ -25,7 +25,7 @@ class Prepare extends React.Component {
     this.generateInitiative = this.generateInitiative.bind(this);
     this.getRandomInitiative = this.getRandomInitiative.bind(this);
   }
-  
+
   monstersModified( selectedMonsters ){
     this.setState({
       selectedMonsters: selectedMonsters
@@ -93,16 +93,16 @@ class Prepare extends React.Component {
     this.props.startBattle();
   }
 
-  render() {  
+  render() {
     if( !this.state.active ){
       return null;
-    } 
+    }
     return (
       <div>
           <EncounterMonsters enemies={this.state.monsters} selectedMonsters={this.state.selectedMonsters} />
           <EnemyTable enemies={this.state.monsters} callbackParent={this.monstersModified} />
           <PlayersTable players={this.state.players} callbackParent={this.playersModified} />
-          <button onClick={this.startBattle}>Battle!</button>
+          <button className="battle-button" onClick={this.startBattle}>Battle!</button>
       </div>
     );
   }

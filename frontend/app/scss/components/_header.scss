@@ -50,7 +50,7 @@
     background: $color-primary1;
     box-shadow: 1px 1px 17px $color-primary3;
     color: $color-primary4;
-    padding: $space-m 0; 
+    padding: $space-m 0;
     position: relative;
     z-index: 1;
 
@@ -110,6 +110,7 @@
         color: $color-primary2;
         font-size: rem(90);
         font-weight: bold;
+        text-align: left;
         text-shadow: 1px 1px 1px $color-primary3;
         text-transform: uppercase;
     }

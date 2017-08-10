@@ -25,7 +25,7 @@ class EnemyTable extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        this.setState({ 
+        this.setState({
             monsters: newProps.enemies,
             filteredMonsters: newProps.enemies,
             maxPages: Math.ceil(newProps.enemies.length / 10)
@@ -35,7 +35,7 @@ class EnemyTable extends React.Component {
     }
 
     componentDidMount(){
-        this.setState({ 
+        this.setState({
             monsters: this.props.enemies,
             filteredMonsters: this.props.enemies,
             maxPages: Math.ceil(this.props.enemies.length / 10)
@@ -126,7 +126,9 @@ class EnemyTable extends React.Component {
     render() {
         return (
             <div className="fight-builder-block">
-                <input className="fight-builder-input" placeholder="Start input name..." value={this.state.searchValue} onChange={this.updateSearch}></input>
+                <div className="fight-builder-field">
+                   <input className="fight-builder-input" placeholder="Start input name..." value={this.state.searchValue} onChange={this.updateSearch}></input>
+                </div>
                 <table className="fight-builder-table">
                     <thead>
                         <th>Actions</th>
@@ -156,13 +158,13 @@ class EnemyTable extends React.Component {
                     </tbody>
                 </table>
                 <div className="pagination-list">
-                    <button className="pagination-item" onClick={() => this.nextPrevChange("-1")}>Previous</button>
+                    <button className="pagination-item previous" onClick={() => this.nextPrevChange("-1")}>Previous</button>
                     {this.state.pagination.map((page) => {
                     return (
                         <button className="pagination-item" key={page} onClick={() => this.changePage(page)}>{page + 1}</button>
                         )
                     })}
-                    <button className="pagination-item" onClick={() => this.nextPrevChange("1")}>Next</button>
+                    <button className="pagination-item next" onClick={() => this.nextPrevChange("1")}>Next</button>
                 </div>
             </div>
         )

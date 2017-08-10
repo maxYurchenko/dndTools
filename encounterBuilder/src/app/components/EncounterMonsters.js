@@ -17,7 +17,7 @@ class EncounterMonsters extends React.Component {
 		for( let m of newProps.selectedMonsters ){
 			totalExp += parseInt(m.data.exp);
 		}
-		this.setState({ 
+		this.setState({
 			selectedMonsters: newProps.selectedMonsters,
 			totalExp: totalExp
 		});
@@ -55,8 +55,8 @@ class EncounterMonsters extends React.Component {
 
 	render() {
 		return (
-			<div className="max-lolka">
-				<div>Total exp: {this.state.totalExp}</div>
+			<div className="fight-monsters-block">
+				<h2 className="fight-monsters-title">Total experience: {this.state.totalExp}</h2>
 				<table>
 					<thead>
 						<th colSpan="2">Actions</th>

@@ -1,0 +1,21 @@
+.battle-button {
+    @extend %button-secondary;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 100%;
+}
+
+.fight-builder-table {
+
+    .player-name {
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+}
+
+.fight-monsters-block,
+.fight-builder-field,
+.fight-initiative-block {
+    padding-bottom: $space-xl;
+}

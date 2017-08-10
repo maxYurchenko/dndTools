@@ -13,7 +13,7 @@ class PlayersTable extends React.Component {
     }
 
     componentDidMount(){
-        this.setState({ 
+        this.setState({
             players: this.props.players
         });
     }
@@ -35,7 +35,7 @@ class PlayersTable extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="fight-initiative-block">
                 <table className="fight-builder-table">
                     <thead>
                         <th>Initiative</th>
