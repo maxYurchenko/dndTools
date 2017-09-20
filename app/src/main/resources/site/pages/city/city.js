@@ -3,8 +3,8 @@ var thymeleaf = require('/lib/xp/thymeleaf');
 var portal = require('/lib/xp/portal');
 var contentLib = require('/lib/xp/content');
 var norseUtils = require('norseUtils');
-var cityLib = require('cityLib');
 var dndToolsUtils = require('dndToolsUtils');
+var cityLib = require('cityLib');
 var helpers = require('helpers');
 
 exports.get = handleGet;
@@ -13,7 +13,7 @@ function handleGet(req) {
     var me = this;
 
     function renderView() {
-        var view = resolve('cities.html');
+        var view = resolve('city.html');
         var model = createModel();
         var body = thymeleaf.render(view, model);
          // Return the result
@@ -29,23 +29,17 @@ function handleGet(req) {
         var up = req.params;
         var content = portal.getContent();
         var response = [];
-        var cities = contentLib.query({
-            query: "_parentPath LIKE '/content" + content._path + "*'",
-            start: 0,
-            count: 10,
-            contentTypes: [
-                app.name + ":town"
-            ],
-        }).hits;
-        for( var i = 0; i < cities.length; i++ ){
-            cities[i] = cityLib.beautifyCity(cities[i], "max(1280)", 2);
-        }
+        content = cityLib.beautifyCity(content, false, 1);
+        content.powerCenter = norseUtils.forceArray(content.data.powerCenter);
+        var header = {
+            image: content.mainImage.url,
+            title: content.displayName
+        };
 
                         
         var model = {
-            pageComponents: helpers.getPageComponents( req ),
+            pageComponents: helpers.getPageComponents( req, header ),
             content: content,
-            cities: cities,
             app: app
         };
 

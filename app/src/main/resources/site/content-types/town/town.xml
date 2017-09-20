@@ -14,6 +14,10 @@
     <item-set name="powerCenter">
       <label>Power center</label>
       <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
         <input name="title" type="TextLine">
           <label>Title</label>
           <occurrences minimum="1" maximum="1"/>
