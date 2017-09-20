@@ -160,8 +160,13 @@ class EnemyTable extends React.Component {
                 <div className="pagination-list">
                     <button className="pagination-item previous" onClick={() => this.nextPrevChange("-1")}>Previous</button>
                     {this.state.pagination.map((page) => {
+                    if( page == this.state.currPage-1 ){
+                        var tempClass = "active";
+                    } else {
+                        var tempClass = "";
+                    }
                     return (
-                        <button className="pagination-item" key={page} onClick={() => this.changePage(page)}>{page + 1}</button>
+                        <button className={"pagination-item " + tempClass} key={page} onClick={() => this.changePage(page)}>{page + 1}</button>
                         )
                     })}
                     <button className="pagination-item next" onClick={() => this.nextPrevChange("1")}>Next</button>
