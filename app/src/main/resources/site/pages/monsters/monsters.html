@@ -10,6 +10,7 @@
 	    	<thead>
     			<th>Name</th>
     			<th>CR</th>
+    			<th>Type</th>
     		</thead>
 	    	<tbody>
 		    	<tr data-th-each="monster: ${monsters}">
@@ -24,6 +25,7 @@
 	    			<a data-th-href="${monster.url}">
 			    		<td data-th-text="${monster.displayName}"></td>
 			    		<td data-th-text="${monster.data.cr}"></td>
+			    		<td data-th-text="${monster.data.type}"></td>
 	    			</a>
 		    	</tr>
 	    	</tbody>

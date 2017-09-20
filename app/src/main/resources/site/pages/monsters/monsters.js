@@ -59,6 +59,7 @@ function handleGet(req) {
                 monstersLinks[i] = monstersLinks[i].replaceAll('\\"', '');
                 if( monstersLinks[i] != 'bestiary/creatures/skyweaver' ){
                     dndToolsUtils.createCreature(createCreature(getCreatureText( 'http://chisaipete.github.io/' + monstersLinks[i])));
+                    //createCreature(getCreatureText( 'http://chisaipete.github.io/' + monstersLinks[i]));
                 }
             }
         }
@@ -69,6 +70,8 @@ function handleGet(req) {
             var stats = mainStats[4].match(/[0-9]+\s/g);
 
             var additionalStats = creatureText.text.split('</table>')[1].split('</p>');
+            var type = mainStats[0].replaceAll("<[^>]*>", "").split(', ')[0].trim().split(' ');
+            type = type.slice(1, type.length + 1).join(' ');
 
             var skills = "";
             var senses = "";
@@ -114,7 +117,8 @@ function handleGet(req) {
             }
             return {
                 name: creatureText.name,
-                size: mainStats[0].replaceAll("<[^>]*>", "").split(', ')[0].trim(),
+                size: mainStats[0].replaceAll("<[^>]*>", "").split(', ')[0].trim().split(' ')[0],
+                type: type,
                 alignment: mainStats[0].replaceAll("<[^>]*>", "").split(', ')[1].trim(),
                 ac: mainStats[1].match(/[0-9]+/g)[0],
                 armor: armor,

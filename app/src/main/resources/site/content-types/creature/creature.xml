@@ -7,6 +7,10 @@
       <label>Size</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
+    <input name="type" type="TextLine">
+      <label>Type</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
     <input name="alignment" type="TextLine">
       <label>Alignment</label>
       <occurrences minimum="1" maximum="1"/>
