@@ -64,21 +64,23 @@ class Monster extends React.Component {
   	}
 
   	render() {  
-  		var style = {};
-  		if( this.state.current ){
-  			style = {
-  				background: 'red'
-  			};
+  		var currenTurn = "";
+  		if( this.state.current ){ 
+  			currenTurn = "curren-turn";
   		}
 	    return (
-	      	<div style={style}>
-	          	<span>Name: {this.state.monster.displayName}</span>
-	          	<span> Init: {this.state.monster.data.initiative}</span>
-	          	<span> AC: {this.state.monster.data.ac}</span>
-	          	<span> HP: {this.state.hpValue}</span>
-	          	<input value={this.state.hpInputValue} type="text" onChange={this.updateHPInputValue} onBlur={this.changeHP}/>
-	          	<input value={this.state.note} type="text" onChange={this.changeNote}/>
-	      	</div>
+	      	<tr className={currenTurn}>
+	          	<td>{this.state.monster.displayName}</td>
+	          	<td>{this.state.monster.data.initiative}</td>
+	          	<td>{this.state.monster.data.ac}</td>
+	          	<td>{this.state.hpValue}</td>
+				<td>
+	          		<input value={this.state.hpInputValue} type="text" laceholder="Enter damage" onChange={this.updateHPInputValue} onBlur={this.changeHP}/>
+				</td>
+				<td>
+	          		<textarea value={this.state.note} laceholder="Enter additional information" type="text" onChange={this.changeNote}/>
+				</td>
+	      	</tr>
 	    );
   	}
 }

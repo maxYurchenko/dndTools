@@ -61,22 +61,34 @@ class Battle extends React.Component {
     if( !this.state.active ){
       return null;
     } 
-    return (
+    return ( 
       <div>
-        Battle!
-        {this.state.monsters.map((monster,key) => {
-          var current = false;
-          if( this.state.currentFighter == key ){
-            current = true; 
-          }
-          return (
-            <div key={key}>
-              <Monster arrPosition={key} current={current} monster={monster} callbackParent={this.monsterChanged} />
-            </div>
-          )
-        })}
-        <button onClick={this.handleNext}>Next</button>
-        <button onClick={this.editBattle}>Edit</button>
+        <h2 className="fight-monsters-title">Battle!</h2>
+        <table  className="fight-table">
+          <thead>
+            <th>Name</th>
+            <th>Initiative</th>
+            <th>Armour Class</th>
+            <th>Hit Points</th>
+            <th>Damage</th>
+            <th>Notes</th>
+          </thead>
+            {this.state.monsters.map((monster,key) => {
+              var current = false;
+              if( this.state.currentFighter == key ){
+                current = true; 
+              }
+              return (
+                <tbody key={key}>
+                  <Monster arrPosition={key} current={current} monster={monster} callbackParent={this.monsterChanged} />
+                </tbody>
+              )
+            })}
+        </table>
+        <div className="fight-actions">
+          <button className="button-primary" onClick={this.handleNext}>Next</button>
+          <button className="button-primary"  onClick={this.editBattle}>Edit</button>
+        </div>
       </div>
     );
   }
