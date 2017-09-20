@@ -18,17 +18,23 @@ exports.beautifyCity = function( city, imageSize, placeholderType ) {
   	if( city.data.cityMap ){
 	  	city.map = norseUtils.getImage(city.data.cityMap);
 	}
-	city.children = contentLib.query({
-        query: "_parentPath = '/content" + city._path + "'",
-        start: 0,
-        count: 10,
-        contentTypes: [
-            "base:folder"
-        ],
-    }).hits;
+	city.children = this.getChildren(city._path, ["base:folder"]);
     for( var i = 0; i < city.children.length; i++ ){
     	city.children[i].url = portal.pageUrl({ id: city.children[i]._id });
+		city.children[i].children = this.getChildren(city.children[i]._path, ["base:folder"]);
+    	for( var j = 0; j < city.children[i].children.length; j++ ){
+    		city.children[i].children[j].url = portal.pageUrl({ id: city.children[i].children[j]._id });
+    	}
     }
   	city.url = portal.pageUrl({ id: city._id });
   	return city;  
 };
+
+exports.getChildren = function( path, types ){
+	return contentLib.query({
+        query: "_parentPath = '/content" + path + "'",
+        start: 0,
+        count: 10,
+        contentTypes: types
+    }).hits;
+}

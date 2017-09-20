@@ -28,6 +28,18 @@ function handleGet(req) {
         var up = req.params;
         var content = portal.getContent();
 
+        var monsters = contentLib.query({
+            query: "",
+            start: 0,
+            count: 999999999,
+            contentTypes: [
+                app.name + ":creature"
+            ]
+        }).hits;
+        for( var i = 0; i < monsters.length; i++ ){
+            monsters[i].url = portal.pageUrl({ id: monsters[i]._id });
+        }
+
         if( up.getMonsters == 1 ){
             getMonsters( up );
         }
@@ -35,6 +47,7 @@ function handleGet(req) {
         var model = {
             pageComponents: helpers.getPageComponents( req ),
             content: content,
+            monsters: monsters,
             app: app
         };
 

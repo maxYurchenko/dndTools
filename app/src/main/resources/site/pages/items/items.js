@@ -31,13 +31,26 @@ function handleGet(req) {
         var tempItemsLinks;
         var itemsLinks = [];
         var itemsNums;
+
         if( up.page ){
             parseItems(up.page);
         }
 
-                        
+        var items = contentLib.query({
+            query: "",
+            start: 0,
+            count: 999999999,
+            contentTypes: [
+                app.name + ":item"
+            ]
+        }).hits;
+        for( var i = 0; i < items.length; i++ ){
+            items[i].url = portal.pageUrl({ id: items[i]._id });
+        }
+           
         var model = {
             pageComponents: helpers.getPageComponents( req ),
+            items: items,
             content: content,
             app: app
         };

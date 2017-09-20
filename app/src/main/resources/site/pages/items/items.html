@@ -5,6 +5,32 @@
 
 <body>
     <header data-th-utext="${pageComponents.header}" data-th-remove="tag"></header>
+    <div class="content-width">
+	    <table>
+	    	<thead>
+    			<th>Title</th>
+    			<th>Rarity</th>
+    			<th>Type</th>
+    		</thead>
+	    	<tbody>
+	    		<tr data-th-each="item: ${items}">
+
+		    		<!--
+
+					WHOLE TABLE ROW SHOULD BE LINKED
+							FIND A WORKAROUND
+
+		    		-->
+
+	    			<a data-th-href="${monster.url}">
+		    			<td data-th-text="${item.displayName}"></td>
+		    			<td data-th-text="${item.data.rarity}"></td>
+		    			<td data-th-text="${item.data.type}"></td>
+	    			</a>
+	    		</tr>
+	    	</tbody>
+	    </table>
+	</div>
     <footer data-th-utext="${pageComponents.footer}" data-th-remove="tag"></footer>
 </body>
 

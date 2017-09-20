@@ -5,8 +5,30 @@
 
 <body>
     <header data-th-utext="${pageComponents.header}"></header>
-    <main>
-    </main>
+    <div class="content-width">
+	    <table>
+	    	<thead>
+    			<th>Name</th>
+    			<th>CR</th>
+    		</thead>
+	    	<tbody>
+		    	<tr data-th-each="monster: ${monsters}">
+
+		    		<!--
+
+					WHOLE TABLE ROW SHOULD BE LINKED
+							FIND A WORKAROUND
+
+		    		-->
+
+	    			<a data-th-href="${monster.url}">
+			    		<td data-th-text="${monster.displayName}"></td>
+			    		<td data-th-text="${monster.data.cr}"></td>
+	    			</a>
+		    	</tr>
+	    	</tbody>
+	    </table>
+	</div>
     <footer data-th-utext="${pageComponents.footer}"></footer>
 </body>
 

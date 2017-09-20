@@ -12,7 +12,8 @@ class Battle extends React.Component {
       monsters: [],
       hpValue: [],
       currentFighter: 0,
-      active: false
+      active: false,
+      hideNames: false
     }
     this.handleNext = this.handleNext.bind(this);
     this.editBattle = this.editBattle.bind(this);
@@ -39,7 +40,8 @@ class Battle extends React.Component {
     }
     this.setState({
       active: newProps.active,
-      monsters: newProps.selectedMonsters
+      monsters: newProps.selectedMonsters,
+      hideNames: newProps.hideNames
     });
   }
 
@@ -80,7 +82,7 @@ class Battle extends React.Component {
               }
               return (
                 <tbody key={key}>
-                  <Monster arrPosition={key} current={current} monster={monster} callbackParent={this.monsterChanged} />
+                  <Monster hideNames={this.state.hideNames} arrPosition={key} current={current} monster={monster} callbackParent={this.monsterChanged} />
                 </tbody>
               )
             })}

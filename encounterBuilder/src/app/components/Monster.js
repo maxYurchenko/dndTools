@@ -14,7 +14,8 @@ class Monster extends React.Component {
 	      	hpValue: 0,
 	      	hpInputValue: '',
 	      	note: '',
-	      	current: false
+	      	current: false,
+	      	hideNames: true
 	    }
 	    this.changeHP = this.changeHP.bind(this);
 	    this.updateHPInputValue = this.updateHPInputValue.bind(this);
@@ -25,7 +26,8 @@ class Monster extends React.Component {
 		this.setState({ 
 			monster: this.props.monster,
 	      	hpValue: parseInt(this.props.monster.data.hp),
-	      	current: this.props.current
+	      	current: this.props.current,
+	      	hideNames: this.props.hideNames
 		});
 	}
 
@@ -68,9 +70,14 @@ class Monster extends React.Component {
   		if( this.state.current ){ 
   			currenTurn = "curren-turn";
   		}
+  		if( this.state.hideNames ){
+  			var name = "Enemy " + this.props.arrPosition;
+  		}else{
+  			var name = this.state.monster.displayName;
+  		}
 	    return (
 	      	<tr className={currenTurn}>
-	          	<td>{this.state.monster.displayName}</td>
+	          	<td>{name}</td>
 	          	<td>{this.state.monster.data.initiative}</td>
 	          	<td>{this.state.monster.data.ac}</td>
 	          	<td>{this.state.hpValue}</td>
