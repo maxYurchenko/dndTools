@@ -16,7 +16,8 @@ class Prepare extends React.Component {
       selectedMonsters: [],
       active: true,
       players: players,
-      encounter: []
+      encounter: [],
+      hideNames: true
     }
     this.monstersModified = this.monstersModified.bind(this);
     this.prepareBattle = this.prepareBattle.bind(this);
@@ -24,6 +25,7 @@ class Prepare extends React.Component {
     this.playersModified = this.playersModified.bind(this);
     this.generateInitiative = this.generateInitiative.bind(this);
     this.getRandomInitiative = this.getRandomInitiative.bind(this);
+    this.updateShowNames = this.updateShowNames.bind(this);
   }
 
   monstersModified( selectedMonsters ){
@@ -93,6 +95,14 @@ class Prepare extends React.Component {
     this.props.startBattle();
   }
 
+  updateShowNames( e ){
+    this.setState({
+      hideNames: !this.state.hideNames
+    }, () => {
+      this.props.changeShowNames(this.state.hideNames);
+    });
+  }
+
   render() {
     if( !this.state.active ){
       return null;
@@ -102,6 +112,8 @@ class Prepare extends React.Component {
           <EncounterMonsters enemies={this.state.monsters} selectedMonsters={this.state.selectedMonsters} />
           <EnemyTable enemies={this.state.monsters} callbackParent={this.monstersModified} />
           <PlayersTable players={this.state.players} callbackParent={this.playersModified} />
+          <input id="showNamesCheckbox" type="checkbox" onChange={this.updateShowNames} checked={this.state.hideNames} />
+          <label for="showNamesCheckbox">Hide names?</label>
           <button className="battle-button" onClick={this.startBattle}>Battle!</button>
       </div>
     );

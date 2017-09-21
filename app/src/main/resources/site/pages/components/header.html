@@ -21,7 +21,7 @@
 				</menu>
 			</div>
 		</div>
-		<div class="header-banner">
+		<div data-th-unless="${headerAttributes}" class="header-banner">
 			<div class="header-banner-img">
 				<img  data-th-src="${portal.assetUrl({'_path=/images/banner-1.jpg'})}" alt="" class="img-baner">
 			</div>
@@ -30,6 +30,16 @@
 					<h1 class="banner-title">
 						Bestiary
 					</h1>
+				</div>
+			</div>
+		</div>
+		<div data-th-if="${headerAttributes}" class="header-banner">
+			<div class="header-banner-img">
+				<img  data-th-src="${headerAttributes.image}" alt="" class="img-baner">
+			</div>
+			<div class="banner-content">
+				<div class="content-width">
+					<h1 class="banner-title" data-th-text="${headerAttributes.title}"></h1>
 				</div>
 			</div>
 		</div>

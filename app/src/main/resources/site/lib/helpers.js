@@ -3,7 +3,7 @@ var portal = require('/lib/xp/portal');
 var thymeleaf = require('/lib/xp/thymeleaf');
 var norseUtils = require('norseUtils');
 
-exports.getPageComponents = function( req ) {
+exports.getPageComponents = function( req, headerAttributes ) {
   var pageComponents = {};
   var up = req.params;
   var site = portal.getSite();  
@@ -15,7 +15,8 @@ exports.getPageComponents = function( req ) {
   pageComponents['header'] = thymeleaf.render( resolve('../pages/components/header.html'), {
     content: content,
     site: site,
-    menu: menu
+    menu: menu,
+    headerAttributes: headerAttributes
   } );
 
 

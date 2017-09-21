@@ -226,3 +226,74 @@ exports.getTranslation = function() {
         return str;
     }
 }
+
+exports.getImage = function( id, size, placeholderType, urlType ){
+    var result = false;
+    if( !size || size == '' ){
+        size = "max(1280)";
+    }
+    if ( typeof urlType == 'undefined' ) {
+        urlType = 'server';
+    }
+    if( id && id != '' ){
+        var image = contentLib.get({ key: id });
+        if ( image ) {
+            if( image.data.artist ){
+                image.data.artist = this.forceArray(image.data.artist);
+            } else {
+                image.data.artist = false;
+            }
+            result = {
+                url: portal.imageUrl({ id: id, scale: size, type: urlType }),
+                alt: image.data.caption ? image.data.caption : image.displayName,
+                caption: image.data.caption ? image.data.caption : "",
+                artist: image.data.artist
+            }
+        }else{
+            result = this.getPlaceholder(placeholderType, size);
+        }
+    }else{
+        result = this.getPlaceholder(placeholderType, size);
+    }
+    return result;
+}
+
+exports.getPlaceholder = function( placeholderType, size ){
+    var result = {};
+    switch ( placeholderType ) {
+        case 1 : {
+            result = {
+                url: portal.assetUrl({
+                    path: "images/townPlaceholder.jpg"
+                }),
+                alt: "City image",
+                caption: "",
+                placeholder: true
+            }
+            break;
+        }
+        case 2 : {
+            result = {
+                url: portal.assetUrl({
+                    path: "images/townPlaceholder.jpg"
+                }),
+                alt: "City icon",
+                caption: "",
+                placeholder: true
+            }
+            break;
+        }
+        default:{
+            result = {
+                url: portal.assetUrl({
+                    path: "images/townPlaceholder.jpg"
+                }),
+                alt: "placeholder",
+                caption: "",
+                placeholder: true
+            }
+            break;
+        }
+    }
+    return result
+}

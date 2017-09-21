@@ -47,8 +47,8 @@ function handleGet(req) {
 
     function generateCity( params ){
         var cityParams = {
-            Name: "Baldurs gate",
-            Size: 'Metropolis',
+            Name: "Waterdeep",
+            Size: 'Neverwinter',
             Dwarf: '8',
             Elf: '7',
             Gnome: '5',

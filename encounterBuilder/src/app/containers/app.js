@@ -10,15 +10,23 @@ class App extends React.Component {
     super();
     this.state = {
       selectedMonsters: [],
-      prepare: true
+      prepare: true,
+      hideNames: true
     }
     this.startBattle = this.startBattle.bind(this);
     this.monstersModified = this.monstersModified.bind(this);
+    this.showNameToggle = this.showNameToggle.bind(this);
   }
   
   monstersModified( selectedMonsters ){
     this.setState({
       selectedMonsters: selectedMonsters
+    });
+  }
+
+  showNameToggle( checkbox ){
+    this.setState({
+      hideNames: checkbox
     });
   }
 
@@ -31,8 +39,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Prepare active={this.state.prepare} callbackParent={this.monstersModified} startBattle={this.startBattle} encounter={this.state.selectedMonsters} />
-        <Battle active={!this.state.prepare} callbackParent={this.monstersModified} selectedMonsters={this.state.selectedMonsters} editBattle={this.startBattle} />
+        <Prepare active={this.state.prepare} changeShowNames={this.showNameToggle} callbackParent={this.monstersModified} startBattle={this.startBattle} encounter={this.state.selectedMonsters} />
+        <Battle hideNames={this.state.hideNames} active={!this.state.prepare} callbackParent={this.monstersModified} selectedMonsters={this.state.selectedMonsters} editBattle={this.startBattle} />
       </div>
     );
   }

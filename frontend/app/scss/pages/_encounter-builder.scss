@@ -19,3 +19,24 @@
 .fight-initiative-block {
     padding-bottom: $space-xl;
 }
+
+
+.curren-turn {
+	td {
+	    border-top: 4px solid $color-primary2;
+	    border-bottom: 4px solid $color-primary2;
+
+	    &:first-child {border-left: 4px solid $color-primary2;}
+
+		&:last-child {
+		    border-right: 4px solid $color-primary2;
+		}
+	}
+
+}
+
+.fight-actions {
+    display: flex;
+    justify-content: space-between;
+    margin: $space-xl 0;
+}

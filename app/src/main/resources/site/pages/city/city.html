@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head data-th-utext="${pageComponents.pagehead}"></head>
+
+<body>
+    <header data-th-utext="${pageComponents.header}" data-th-remove="tag"></header>
+    <div>
+		<div>
+			<div data-th-each="center: ${content.powerCenter}">
+				<!--
+					TODO
+					add center title readable
+				-->
+				<span data-th-text="${center.name}" data-th-if="${center.name}"></span>
+				<span data-th-text="${center.title}"></span>
+				<span data-th-text="${center.alignment}"></span>
+			</div>
+		</div>
+		<div>
+			<span data-th-text="${content.data.population}"></span>
+			<span data-th-text="${content.data.wealth}"></span>
+			<span data-th-text="${content.data.gpLimit}"></span>
+		</div>
+		<div data-th-each="child: ${content.children}">
+			<ul>
+				<a data-th-href="${child.url}" data-th-text="${child.displayName}"></a>
+				<li data-th-each="subchild: ${child.children}">
+					<a data-th-href="${subchild.url}" data-th-text="${subchild.displayName}"></a>
+				</li>
+			</ul>
+		</div>
+    </div>
+    <footer data-th-utext="${pageComponents.footer}" data-th-remove="tag"></footer>
+</body>
+
+</html>

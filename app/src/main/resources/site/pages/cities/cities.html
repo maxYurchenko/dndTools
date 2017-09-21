@@ -5,6 +5,14 @@
 
 <body>
     <header data-th-utext="${pageComponents.header}" data-th-remove="tag"></header>
+    <div data-th-each="city: ${cities}" data-th-remove="tag">
+    	<a data-th-href="${city.url}">
+    		<h2 data-th-text="${city.displayName}"></h2>
+    		<div style="width: 200px">
+    			<img data-th-src="${city.icon.url}">
+    		</div>
+    	</a>
+    </div>
     <footer data-th-utext="${pageComponents.footer}" data-th-remove="tag"></footer>
 </body>
 
