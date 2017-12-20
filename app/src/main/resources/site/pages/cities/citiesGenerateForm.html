@@ -1,0 +1,64 @@
+<form method="get" id="generateCityForm">
+  	<div data-th-text="${portal.localize({'_key=cities.name','_locale='+content.language})}"></div>
+  	<input class="generateCityName" type="text" name="name">
+
+  	<div data-th-text="${portal.localize({'_key=cities.size','_locale='+content.language})}"></div>
+  	<select name="size">
+		<option value="Thorp" data-th-text="${portal.localize({'_key=cities.size.thorp','_locale='+content.language})}">Thorp</option>
+		<option value="Hamlet" data-th-text="${portal.localize({'_key=cities.size.hamlet','_locale='+content.language})}">Hamlet</option>
+		<option value="Village" data-th-text="${portal.localize({'_key=cities.size.village','_locale='+content.language})}">Village</option>
+		<option value="STown" data-th-text="${portal.localize({'_key=cities.size.sTown','_locale='+content.language})}">Small Town</option>
+		<option value="LTown" data-th-text="${portal.localize({'_key=cities.size.lTown','_locale='+content.language})}">Large Town</option>
+		<option value="SCity" data-th-text="${portal.localize({'_key=cities.size.sCity','_locale='+content.language})}">Small City</option>
+		<option value="LCity" data-th-text="${portal.localize({'_key=cities.size.lCity','_locale='+content.language})}">Large City</option>
+		<option value="Metropolis" data-th-text="${portal.localize({'_key=cities.size.metropolis','_locale='+content.language})}">Metropolis</option>
+	</select>
+
+	<div data-th-text="${portal.localize({'_key=cities.citizensTitle','_locale='+content.language})}"></div>
+	<div data-th-text="${portal.localize({'_key=cities.dwarves','_locale='+content.language})}"></div>
+	<input type="text" name="dwarf" class="citizens">
+	<div data-th-text="${portal.localize({'_key=cities.elves','_locale='+content.language})}"></div>
+	<input type="text" name="elf" class="citizens">
+	<div data-th-text="${portal.localize({'_key=cities.gnomes','_locale='+content.language})}"></div>
+	<input type="text" name="gnome" class="citizens">
+	<div data-th-text="${portal.localize({'_key=cities.halfelves','_locale='+content.language})}"></div>
+	<input type="text" name="halfelf" class="citizens">
+	<div data-th-text="${portal.localize({'_key=cities.halflings','_locale='+content.language})}"></div>
+	<input type="text" name="halfling" class="citizens">
+	<div data-th-text="${portal.localize({'_key=cities.halforcs','_locale='+content.language})}"></div>
+	<input type="text" name="halforc" class="citizens">
+	<div data-th-text="${portal.localize({'_key=cities.human','_locale='+content.language})}"></div>
+	<input type="text" name="human" class="citizens">
+	<div data-th-text="${portal.localize({'_key=cities.children','_locale='+content.language})}"></div>
+	<input type="text" name="children">
+
+	<div>
+		<input type="checkbox" id="port" name="port">
+		<label for="port">Port</label>
+	</div>
+
+	<div>
+		<input type="checkbox" id="mountains" name="mountains">
+		<label for="mountains">Hills or mountains</label>
+	</div>
+
+	<div>
+		<input type="checkbox" id="military" name="military">
+		<label for="military">Military settlement</label>
+	</div>
+
+	<div>
+		<input type="checkbox" id="agricultural" name="agricultural">
+		<label for="agricultural">Agricultural area</label>
+	</div>
+
+	<div>
+		<input type="checkbox" id="forest" name="forest">
+		<label for="forest">Forest area</label>
+	</div>
+
+  	<input class="generateCitySubmit" type="submit" value="Submit" name="generateCity" disabled>
+
+  	<div class="scoreLeftBlock">
+  	</div>
+</form>

@@ -6,7 +6,7 @@ var norseUtils = require('norseUtils');
 exports.getPageComponents = function( req, headerAttributes ) {
   var pageComponents = {};
   var up = req.params;
-  var site = portal.getSite();  
+  var site = portal.getSite();
   var siteConfig = portal.getSiteConfig();
   var content = portal.getContent();
 
@@ -23,10 +23,10 @@ exports.getPageComponents = function( req, headerAttributes ) {
   pageComponents['pagehead'] = thymeleaf.render( resolve('../pages/components/pagehead.html'), {
     content: content
   });
-  
+
   pageComponents['footer'] = thymeleaf.render( resolve('../pages/components/footer.html'), {
     content: content
-  });  
+  });
 
   function getMenu( menuItems ){
     var menu = [];
@@ -39,5 +39,5 @@ exports.getPageComponents = function( req, headerAttributes ) {
     return menu;
   }
 
-  return pageComponents;  
+  return pageComponents;
 };

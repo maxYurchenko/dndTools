@@ -36,7 +36,6 @@ function handleGet(req) {
             title: content.displayName
         };
 
-                        
         var model = {
             pageComponents: helpers.getPageComponents( req, header ),
             content: content,

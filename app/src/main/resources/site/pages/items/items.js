@@ -47,7 +47,6 @@ function handleGet(req) {
         for( var i = 0; i < items.length; i++ ){
             items[i].url = portal.pageUrl({ id: items[i]._id });
         }
-           
         var model = {
             pageComponents: helpers.getPageComponents( req ),
             items: items,

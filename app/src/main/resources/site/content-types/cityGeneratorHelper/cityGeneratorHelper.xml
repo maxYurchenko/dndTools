@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>City generator helper</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <item-set name="townBuildingType">
+      <label>Town building type</label>
+      <items>
+        <input name="type" type="TextLine">
+          <label>Type</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <item-set name="subTypes">
+          <label>Town building subtype</label>
+          <items>
+            <input name="subTypeName" type="TextLine">
+              <label>Sub types</label>
+              <occurrences minimum="1" maximum="1"/>
+            </input>
+            <input name="subTypePossibility" type="TextLine">
+              <label>Possibility</label>
+              <occurrences minimum="1" maximum="1"/>
+            </input>
+          </items>
+          <occurrences minimum="1" maximum="0"/>
+        </item-set>
+      </items>
+      <occurrences minimum="1" maximum="0"/>
+    </item-set>
+  </form>
+</content-type>

@@ -11,6 +11,14 @@
       <label>Wealth</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
+    <input name="size" type="TextLine">
+      <label>Size</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="blocks" type="TextLine">
+      <label>Blocks</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
     <item-set name="powerCenter">
       <label>Power center</label>
       <items>

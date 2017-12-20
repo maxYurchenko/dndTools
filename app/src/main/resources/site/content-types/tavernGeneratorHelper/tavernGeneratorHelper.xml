@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Tavern generator helper</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <item-set name="cheapFood">
+      <label>Cheap food menu</label>
+      <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="price" type="TextLine">
+          <label>Price</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="1" maximum="0"/>
+    </item-set>
+    <item-set name="averageFood">
+      <label>Average food menu</label>
+      <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="price" type="TextLine">
+          <label>Price</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="1" maximum="0"/>
+    </item-set>
+    <item-set name="expensiveFood">
+      <label>Expensive food menu</label>
+      <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="price" type="TextLine">
+          <label>Price</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="1" maximum="0"/>
+    </item-set>
+    <item-set name="cheapDrink">
+      <label>Cheap drinks menu</label>
+      <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="price" type="TextLine">
+          <label>Price</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="1" maximum="0"/>
+    </item-set>
+    <item-set name="averageDrink">
+      <label>Average drinks menu</label>
+      <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="price" type="TextLine">
+          <label>Price</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="1" maximum="0"/>
+    </item-set>
+    <item-set name="expensiveDrink">
+      <label>Expensive drinks menu</label>
+      <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="price" type="TextLine">
+          <label>Price</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="1" maximum="0"/>
+    </item-set>
+    <item-set name="cheapVine">
+      <label>Cheap vine menu</label>
+      <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="price" type="TextLine">
+          <label>Price</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="0" maximum="0"/>
+    </item-set>
+    <item-set name="averageVine">
+      <label>Average vine menu</label>
+      <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="price" type="TextLine">
+          <label>Price</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="1" maximum="0"/>
+    </item-set>
+    <item-set name="expensiveVine">
+      <label>Expensive vine menu</label>
+      <items>
+        <input name="name" type="TextLine">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="price" type="TextLine">
+          <label>Price</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+      <occurrences minimum="1" maximum="0"/>
+    </item-set>
+  </form>
+</content-type>

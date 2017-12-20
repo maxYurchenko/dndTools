@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Name array</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <item-set name="firstName">
+      <label>First name</label>
+      <items>
+        <input name="first" type="TextLine">
+          <label>First</label>
+          <occurrences minimum="0" maximum="0"/>
+        </input>
+        <input name="second" type="TextLine">
+          <label>Second</label>
+          <occurrences minimum="0" maximum="0"/>
+        </input>
+        <input name="third" type="TextLine">
+          <label>Third</label>
+          <occurrences minimum="0" maximum="0"/>
+        </input>
+        <input name="fourth" type="TextLine">
+          <label>Fourth</label>
+          <occurrences minimum="0" maximum="0"/>
+        </input>
+      </items>
+      <occurrences minimum="0" maximum="1"/>
+    </item-set>
+    <item-set name="lastName">
+      <label>Last name</label>
+      <items>
+        <input name="first" type="TextLine">
+          <label>First</label>
+          <occurrences minimum="0" maximum="0"/>
+        </input>
+        <input name="second" type="TextLine">
+          <label>Second</label>
+          <occurrences minimum="0" maximum="0"/>
+        </input>
+        <input name="third" type="TextLine">
+          <label>Third</label>
+          <occurrences minimum="0" maximum="0"/>
+        </input>
+        <input name="fourth" type="TextLine">
+          <label>Fourth</label>
+          <occurrences minimum="0" maximum="0"/>
+        </input>
+      </items>
+      <occurrences minimum="0" maximum="1"/>
+    </item-set>
+  </form>
+</content-type>

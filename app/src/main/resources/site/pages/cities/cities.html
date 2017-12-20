@@ -5,6 +5,15 @@
 
 <body>
     <header data-th-utext="${pageComponents.header}" data-th-remove="tag"></header>
+
+    <div data-th-if="${generateForm}" data-th-utext="${generateForm}"></div>
+    <div data-th-unless="${generateForm}">
+        <form method="get">
+            <input type="hidden" name="showGenerateForm" value="1">
+            <input type="submit" value="Create new city">
+        </form>
+    </div>
+
     <div data-th-each="city: ${cities}" data-th-remove="tag">
     	<a data-th-href="${city.url}">
     		<h2 data-th-text="${city.displayName}"></h2>

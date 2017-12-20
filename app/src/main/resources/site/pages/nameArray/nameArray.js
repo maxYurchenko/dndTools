@@ -12,13 +12,11 @@ function handleGet(req) {
     var me = this;
 
     function renderView() {
-        var view = resolve('home.html');
+        var view = resolve('nameArray.html');
         var model = createModel();
         var body = thymeleaf.render(view, model);
-         // Return the result
         return {
           body: body,
-          //contentType: 'application/json',
           contentType: 'text/html'
         };
     }
@@ -27,14 +25,17 @@ function handleGet(req) {
 
         var up = req.params;
         var content = portal.getContent();
+        var response = [];
 
         var model = {
-            content: content,
             pageComponents: helpers.getPageComponents( req ),
+            content: content,
             app: app
         };
 
         return model;
+
+
     }
 
     return renderView();

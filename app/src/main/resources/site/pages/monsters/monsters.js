@@ -43,7 +43,7 @@ function handleGet(req) {
         if( up.getMonsters == 1 ){
             getMonsters( up );
         }
-                        
+
         var model = {
             pageComponents: helpers.getPageComponents( req ),
             content: content,

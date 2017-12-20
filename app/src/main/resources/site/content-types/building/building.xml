@@ -7,6 +7,10 @@
       <label>Type</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
+    <input name="subtype" type="TextLine">
+      <label>Sub Type</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
     <input name="price" type="TextLine">
       <label>Price</label>
       <occurrences minimum="1" maximum="1"/>

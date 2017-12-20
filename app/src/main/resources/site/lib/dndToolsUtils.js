@@ -20,7 +20,7 @@ exports.makeRequest = function(url, params, method) {
 
 exports.createCity = function( city, population, buildings ){
 	var cityCore = {
-		Population: ['Guards', 'Militia', 'Warriors', 'Experts', 'Adepts', 'Aristocrats', 'Barbarians', 'Bards', 'Clerics', 
+		Population: ['Guards', 'Militia', 'Warriors', 'Experts', 'Adepts', 'Aristocrats', 'Barbarians', 'Bards', 'Clerics',
 			'Druids', 'Fighters', 'Monks', 'Paladins', 'Rangers', 'Rogues', 'Sorcerers', 'Wizards', 'Commoners'],
 		Buildings: ['Blacksmith', 'Magic Shop', 'Scroll and Potion Shop', 'Jewelry Store', 'General Store', 'Taverns']
 	}

@@ -27,7 +27,7 @@ exports.beautifyCity = function( city, imageSize, placeholderType ) {
     	}
     }
   	city.url = portal.pageUrl({ id: city._id });
-  	return city;  
+  	return city;
 };
 
 exports.getChildren = function( path, types ){

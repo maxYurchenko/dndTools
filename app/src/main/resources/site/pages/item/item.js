@@ -29,7 +29,6 @@ function handleGet(req) {
         var content = portal.getContent();
         var response = [];
 
-                        
         var model = {
             pageComponents: helpers.getPageComponents( req ),
             content: content,
