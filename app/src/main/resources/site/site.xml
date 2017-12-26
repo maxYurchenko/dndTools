@@ -2,28 +2,88 @@
 <site>
   <config>
   	<item-set name="contentLocation">
-	  <label>Content location</label>
-	  <items>
-	  	<input name="itemsLocation" type="ContentSelector">
-			<label>Items' location</label>
-			<occurrences minimum="1" maximum="1"/>
-			<config>
-			</config>
-		</input>
-	  	<input name="monstersLocation" type="ContentSelector">
-			<label>Monsters' location</label>
-			<occurrences minimum="1" maximum="1"/>
-			<config>
-			</config>
-		</input>
-	  	<input name="citiesLocation" type="ContentSelector">
-			<label>Cities' location</label>
-			<occurrences minimum="1" maximum="1"/>
-			<config>
-			</config>
-		</input>
-	  </items>
-	  <occurrences minimum="1" maximum="1"/>
+	  	<label>Content location</label>
+	  	<items>
+		  	<input name="itemsLocation" type="ContentSelector">
+				<label>Items' location</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="monstersLocation" type="ContentSelector">
+				<label>Monsters' location</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="citiesLocation" type="ContentSelector">
+				<label>Cities' location</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+	  	</items>
+	  	<occurrences minimum="1" maximum="1"/>
+	</item-set>
+  	<item-set name="namesLocations">
+	  	<label>Names location</label>
+	  	<items>
+		  	<input name="elvesMale" type="ContentSelector">
+				<label>Elves male</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="elvesFemale" type="ContentSelector">
+				<label>Elves female</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="dwarvesMale" type="ContentSelector">
+				<label>Dwarves male</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="dwarvesFemale" type="ContentSelector">
+				<label>Dwarves female</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="orcsMale" type="ContentSelector">
+				<label>Orcs male</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="orcsFemale" type="ContentSelector">
+				<label>Orcs female</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="humanMale" type="ContentSelector">
+				<label>Human male</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="humanFemale" type="ContentSelector">
+				<label>Human female</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		  	<input name="other" type="ContentSelector">
+				<label>Other</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
+		</items>
+	  	<occurrences minimum="1" maximum="1"/>
 	</item-set>
   	<input name="menuItems" type="ContentSelector">
 		<label>Menu items</label>
