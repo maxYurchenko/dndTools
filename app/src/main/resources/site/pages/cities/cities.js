@@ -81,28 +81,28 @@ function handleGet(req) {
 
     function generatePopulation( size ){
         switch (size) {
-            case '0':
+            case 0:
                 var population = Math.floor((Math.random() * 480) + 20);
                 break;
-            case '1':
+            case 1:
                 var population = Math.floor((Math.random() * 500) + 500);
                 break;
-            case '2':
+            case 2:
                 var population = Math.floor((Math.random() * 2000) + 1000);
                 break;
-            case '3':
+            case 3:
                 var population = Math.floor((Math.random() * 5000) + 3000);
                 break;
-            case '4':
+            case 4:
                 var population = Math.floor((Math.random() * 7000) + 5000);
                 break;
-            case '5':
+            case 5:
                 var population = Math.floor((Math.random() * 9000) + 7000);
                 break;
-            case '6':
+            case 6:
                 var population = Math.floor((Math.random() * 10000) + 10000);
                 break;
-            case '7':
+            case 7:
                 var population = Math.floor((Math.random() * 30000) + 20000);
                 break;
             default:
@@ -146,95 +146,163 @@ function handleGet(req) {
     }
 
     function generateTownCitizens( population, params ){
+        var currPopulation = population;
         var citizensPossibility = {
+            human: params.human,
             elf: params.elf,
             dwarf: params.dwarf,
-            gnome: params.gnome,
             halfelf: params.halfelf,
+            gnome: params.gnome,
             halfling: params.halfling,
-            halforc: params.halforc,
-            human: params.human
+            halforc: params.halforc
         }
-        norseUtils.log(citizensPossibility);
-        for( var i = 0; i < 10; i++ ){
-            //generateSingleCitizen(Math.floor(Math.random() * 10));
+        var citizens = {
+            human: 0,
+            elf: 0,
+            dwarf: 0,
+            halfelf: 0,
+            gnome: 0,
+            halfling: 0,
+            halforc: 0
         }
+        while ( currPopulation > 0 ){
+            for (var k in citizensPossibility){
+                if (citizensPossibility.hasOwnProperty(k)) {
+                    var tempPopulation = Math.floor(Math.random() * citizensPossibility[k]);
+                    citizens[k] += tempPopulation;
+                    currPopulation -= tempPopulation;
+                }
+            }
+        }
+        var citizensObjects = {};
+        for (var k in citizens){
+            if (citizens.hasOwnProperty(k)) {
+                citizensObjects[k] = generateCitizensByRace(citizens[k], k);
+            }
+        }
+        norseUtils.log(citizensObjects);
     }
 
     function getRace( params ){
         var currRace = Math.floor(Math.random() * 101);
     }
 
-    function generateSingleCitizen( race ){
+    function generateCitizensByRace( amount, race ){
         var namesLocations = portal.getSiteConfig().namesLocations;
-        var useNames = selectNameArr( race );
-        var names = contentLib.get({key: namesLocations[useNames]});
+        var result = [];
+        var raceStats = selectNameArr( race );
+        var names = contentLib.get({key: namesLocations[raceStats.names]});
+        for( var i = 0; i < amount; i++ ){
+            result.push(generateSingleCitizen( names, race, raceStats ));
+        }
+        return result;
+    }
+
+    function generateSingleCitizen( names, race, raceStats ){
         var sex = Math.floor(Math.random() * 2);
-        return generateCitizenName(names);
+        var name = generateCitizenName(names);
+        var age = Math.floor((Math.random() * raceStats.maxAge) + raceStats.minAge);
+        return {
+            //sex:
+            //male - 0
+            //female - 1
+            name: name,
+            sex: sex,
+            age: age,
+            race: race
+        };
     }
 
     function selectNameArr( race, sex ){
-        var result = '';
+        var names = '';
+        var minAge = 0;
+        var maxAge = 100;
         switch (race){
-            case 0:
+            case 'human':
                 // human
-                result = 'human';
+                names = 'human';
+                var minAge = 17;
+                var maxAge = 100;
                 break;
-            case 1:
+            case 'elf':
                 // elf
-                result = 'elves';
+                names = 'elves';
+                var minAge = 100;
+                var maxAge = 750;
                 break;
-            case 2:
+            case 'dwarf':
                 // dwarf
-                result = 'dwarves';
+                names = 'dwarves';
+                var minAge = 50;
+                var maxAge = 350;
                 break;
-            case 3:
+            case 'halforc':
                 // orc
-                result = 'orcs';
+                names = 'orcs';
+                var minAge = 14;
+                var maxAge = 75;
                 break;
-            case 4:
+            case 'halfling':
                 // halfling
-                result = 'human';
+                names = 'human';
+                var minAge = 20;
+                var maxAge = 150;
                 break;
-            case 5:
+            case 'gnome':
                 // gnome
-                result = 'human';
+                names = 'human';
+                var minAge = 40;
+                var maxAge = 450;
                 break;
-            case 6:
+            case 'halfelf':
                 // half-elf
-                result = 'elves';
+                names = 'elves';
+                var minAge = 20;
+                var maxAge = 180;
                 break;
             case 7:
                 // dragonborn
-                result = 'other';
+                names = 'other';
+                var minAge = 15;
+                var maxAge = 80;
                 break;
             case 8:
                 // aarakocra
-                result = 'other';
+                names = 'other';
+                var minAge = 3;
+                var maxAge = 30;
                 break;
             case 9:
                 // tiefling
-                result = 'other';
+                names = 'other';
+                var minAge = 17;
+                var maxAge = 120;
                 break;
             case 10:
                 // goliath
-                result = 'other';
+                names = 'other';
+                var minAge = 17;
+                var maxAge = 90;
                 break;
             default:
                 break;
         }
-        if( result == 'other' ){
-            return result;
+        if( names == 'other' ){
+            return names;
         }
         switch (sex){
             case 0:
-                result += 'Male';
+                names += 'Male';
                 break;
             default:
-                result += 'Female';
+                names += 'Female';
                 break;
         }
-        return result;
+        return {
+            names: names,
+            minAge: minAge,
+            maxAge: maxAge,
+        };
     }
 
     function generateCitizenName( nameArr ){
@@ -255,7 +323,7 @@ function handleGet(req) {
                 break;
             }
         }
-        return firstName + ' ' + lastName;
+        return (firstName + ' ' + lastName).trim();
     }
 
     function generateParams( params ){
