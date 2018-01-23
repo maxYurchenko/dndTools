@@ -11,9 +11,17 @@
       <label>Sex</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
+    <input name="age" type="TextLine">
+      <label>Age</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="occupation" type="TextLine">
+      <label>Occupation</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
     <input name="class" type="TextLine">
       <label>Class</label>
-      <occurrences minimum="1" maximum="1"/>
+      <occurrences minimum="0" maximum="1"/>
     </input>
     <input name="level" type="TextArea">
       <label>Level</label>
@@ -21,11 +29,11 @@
     </input>
     <input name="role" type="TextArea">
       <label>Role</label>
-      <occurrences minimum="1" maximum="1"/>
+      <occurrences minimum="0" maximum="1"/>
     </input>
     <input name="habit" type="TextArea">
       <label>Habit</label>
-      <occurrences minimum="1" maximum="1"/>
+      <occurrences minimum="0" maximum="1"/>
     </input>
   </form>
 </content-type>
