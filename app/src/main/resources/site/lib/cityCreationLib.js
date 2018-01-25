@@ -634,6 +634,7 @@ exports.createPerson = function( person, parentPath ){
             class: person.class,
             occupation: person.occupation,
             level: person.level,
+            married: person.married
           }
       });
   } catch( err ){

@@ -27,10 +27,6 @@
       <label>Level</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
-    <input name="role" type="TextArea">
-      <label>Role</label>
-      <occurrences minimum="0" maximum="1"/>
-    </input>
     <input name="habit" type="TextArea">
       <label>Habit</label>
       <occurrences minimum="0" maximum="1"/>
