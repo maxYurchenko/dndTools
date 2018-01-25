@@ -6,20 +6,53 @@ var norseUtils = require('norseUtils');
 var content = null;
 
 exports.createCity = function( params, currContent ){
+  norseUtils.log('Preparing to generate city');
   content = currContent;
   params = generateParams(params);
   var population = generatePopulation( params.size );
   var wealth = generateWealth( population, params.size );
   var citizens = generateTownCitizens( population, params );
   var buildings = generateBuildingsAmount(population, params.size);
+  citizens = generateRelationship(citizens);
+
+  norseUtils.log('Total citizens: ' + citizens.length);
+  norseUtils.log('Creating citizens objects');
   var paths = createCity(params.name, population, wealth, params.size);
-  for (var c in citizens) {
-    if (citizens.hasOwnProperty(c)) {
-      for( var i = 0; i < citizens[c].length; i++ ){
-        this.createPerson(citizens[c][i], paths.citizensPath);
+  for( var i = 0; i < citizens.length; i++ ){
+    this.createPerson(citizens[i], paths.citizensPath);
+  }
+  norseUtils.log('Creating buildings objects');
+  for (var b in buildings) {
+    if (buildings.hasOwnProperty(b)) {
+      for (var subType in buildings[b]) {
+        if (buildings[b].hasOwnProperty(subType)) {
+          for( var i = 0; i < buildings[b][subType].length; i++ ){
+            buildings[b][subType][i].employees = generateBuildingWorkers( citizens, buildings[b][subType][i].workers );
+            this.createBuilding(buildings[b][subType][i], subType, b, paths.buildingsPath);
+          }
+        }
       }
     }
   }
+  norseUtils.log('Creating relationship between citizens');
+  for( var i = 0; i < citizens.length; i++ ){
+    this.addRelationshipToPerson(citizens[i]);
+  }
+  norseUtils.log('Finished');
+
+}
+
+function generateBuildingWorkers( citizens, amount ){
+  var result = [];
+  for( var i = 0; i < amount; ){
+    var citizenIndex = Math.floor((Math.random() * citizens.length));
+    if( citizens[citizenIndex] && !citizens[citizenIndex].employed ){
+      citizens[citizenIndex].employed = true;
+      result.push(citizens[citizenIndex].name);
+      i++;
+    }
+  }
+  return result;
 }
 
 function generatePopulation( size ){
@@ -129,10 +162,14 @@ function generateSingleBuilding( names, type, minWorkers, maxWorkers ){
   var availablePositions = Math.floor(Math.random() * ((maxWorkers) - minWorkers - workers)) - minWorkers;
   availablePositions = availablePositions < 0 ? 0 : availablePositions;
   availablePositions = availablePositions > 10 ? 10 : availablePositions;
+  var lunchTime = 12 + Math.floor((Math.random() * 12) + 1) - Math.floor((Math.random() * 12) + 1);
+  var lunchOpen = Math.floor((Math.random() * 2)) - Math.floor((Math.random() * 2));
   return {
       name: name,
       availablePositions: availablePositions,
       workers: workers,
+      lunchTime: lunchTime,
+      lunchOpen: lunchOpen ? lunchOpen : 0,
       prices : Math.floor(Math.random() * 100 + 85)
   };
 }
@@ -187,10 +224,10 @@ function generateTownCitizens( population, params ){
           }
       }
   }
-  var citizensObjects = {};
+  var citizensObjects = [];
   for (var k in citizens){
       if (citizens.hasOwnProperty(k)) {
-          citizensObjects[k] = generateCitizensByRace(citizens[k], k);
+          citizensObjects.push.apply(citizensObjects, generateCitizensByRace(citizens[k], k));
       }
   }
   return citizensObjects;
@@ -258,14 +295,19 @@ function generateSingleCitizen( names, race, raceStats ){
   } else {
       charachterClass = '';
   }
+  var friends = Math.floor((Math.random() * 25));
+  var married = Math.floor((Math.random() * friends)) - Math.floor((Math.random() * friends));
   return {
       //sex:
       //male - 0
       //female - 1
       name: name,
+      friends: friends,
+      married: married > 0 ? true : false,
       sex: sex,
       age: age,
       race: race,
+      friendsArray: [],
       level: level,
       occupation: occupations[occupationCoef],
       class: charachterClass
@@ -498,6 +540,85 @@ function createCity( name, population, wealth, size ){
   };
 }
 
+function generateRelationship( citizens ){
+  for( var i = 0; i < citizens.length; i++){
+    if( citizens[i].married && !citizens[i].spouse ){
+      var marriedFound = false;
+      while (!marriedFound) {
+        var j = Math.floor((Math.random() * citizens.length));
+        if( (j != i) && (citizens[j].married) && (citizens[j].sex != citizens[i].sex) ){
+          citizens[i].spouse = citizens[j].name;
+          citizens[j].spouse = citizens[i].name;
+          marriedFound = true;
+        }
+      }
+    }
+    for( var m = 0; m < citizens[i].friends; m++ ){
+      var k = Math.floor((Math.random() * citizens.length));
+      if((k != i) && citizens[i].friendsArray.indexOf(citizens[k].name) == -1){
+        citizens[i].friendsArray.push(citizens[k].name);
+        citizens[k].friendsArray.push(citizens[i].name);
+      }
+    }
+  }
+  return citizens;
+}
+
+function createRelationshipArray( person ){
+  var result = [];
+  if( person.spouse ){
+    var spouse = contentLib.query({
+      start: 0,
+      count: 1,
+      query: "displayName = '" + person.spouse + "'",
+      branch: "draft",
+      contentTypes: [
+          app.name + ":person"
+      ]
+    }).hits[0];
+    result.push({type: 'spouse', person: spouse._id});
+  }
+  for( var i = 0; i < person.friendsArray.length; i++ ){
+    var friend = contentLib.query({
+      start: 0,
+      count: 1,
+      query: "displayName = '" + person.friendsArray[i] + "'",
+      branch: "draft",
+      contentTypes: [
+          app.name + ":person"
+      ]
+    }).hits[0];
+    result.push({type: 'friend', person: friend._id});
+  }
+  return result;
+}
+
+exports.addRelationshipToPerson = function( person ){
+  try{
+    var relationshipArray = createRelationshipArray(person);
+    var key = contentLib.query({
+      start: 0,
+      count: 1,
+      query: "displayName = '" + person.name + "'",
+      branch: "draft",
+      contentTypes: [
+          app.name + ":person"
+      ]
+    }).hits[0]._path;
+    var result = contentLib.modify({
+      key: key,
+      editor: relationshipEditor
+    });
+  } catch( err ){
+    norseUtils.log('ERROR while adding relationship to ' + person.occupation + ' ' + person.name);
+  }
+
+  function relationshipEditor(c){
+    c.data.relationships = relationshipArray;
+    return c;
+  }
+}
+
 exports.createPerson = function( person, parentPath ){
   try{
     contentLib.create({
@@ -515,8 +636,48 @@ exports.createPerson = function( person, parentPath ){
             level: person.level,
           }
       });
-      norseUtils.log('created ' + person.occupation + ' ' + person.name);
   } catch( err ){
-    norseUtils.log(err);
+    norseUtils.log('ERROR creating ' + person.occupation + ' ' + person.name);
+  }
+}
+
+exports.createBuilding = function( building, type, subType, parentPath ){
+  try{
+    var buidlingEmployees = [];
+    for( var i = 0; i < building.employees.length; i++ ){
+      var currEployeeId = contentLib.query({
+        start: 0,
+        count: 1,
+        query: "displayName = '" + building.employees[i] + "'",
+        branch: "draft",
+        contentTypes: [
+            app.name + ":person"
+        ]
+      }).hits[0];
+      if( i < 1 ){
+        buidlingEmployees.push({ id: currEployeeId._id, role: "owner"});
+      } else {
+        buidlingEmployees.push({ id: currEployeeId._id, role: "worker"});
+      }
+    }
+    contentLib.create({
+          name: building.name,
+          displayName: building.name,
+          parentPath: parentPath,
+          contentType: app.name + ':building',
+          refresh: true,
+          data: {
+            type: type,
+            subType: subType,
+            availablePositions: building.availablePositions,
+            workers: building.workers,
+            price: building.prices,
+            staff: buidlingEmployees,
+            lunchTime: building.lunchTime,
+            lunchOpen: building.lunchOpen
+          }
+      });
+  } catch( err ){
+    norseUtils.log('ERROR creating ' + subType + ' ' + type + ' ' + building.name);
   }
 }

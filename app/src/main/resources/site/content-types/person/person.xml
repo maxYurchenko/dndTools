@@ -35,5 +35,34 @@
       <label>Habit</label>
       <occurrences minimum="0" maximum="1"/>
     </input>
+    <input name="married" type="CheckBox">
+      <label>Married</label>
+      <occurrences minimum="0" maximum="1"/>
+      <config>
+        <alignment>right</alignment>
+      </config>
+    </input>
+    <item-set name="relationships">
+      <label>Relationships</label>
+      <items>
+        <input name="person" type="ContentSelector">
+          <label>Person</label>
+          <occurrences minimum="1" maximum="1"/>
+          <config>
+            <relationshipType>system:reference</relationshipType>
+            <allowPath>*</allowPath>
+          </config>
+        </input>
+        <input name="type" type="ComboBox">
+          <label>Type</label>
+          <occurrences minimum="1" maximum="1"/>
+          <config>
+            <option value="spouse">Spouse</option>
+            <option value="friend">Friend</option>
+          </config>
+        </input>
+      </items>
+      <occurrences minimum="0" maximum="0"/>
+    </item-set>
   </form>
 </content-type>

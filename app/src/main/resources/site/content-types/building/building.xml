@@ -7,7 +7,7 @@
       <label>Type</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
-    <input name="subtype" type="TextLine">
+    <input name="subType" type="TextLine">
       <label>Sub Type</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
@@ -17,11 +17,19 @@
     </input>
     <input name="lunchTime" type="TextLine">
       <label>Lunch time</label>
-      <occurrences minimum="1" maximum="1"/>
+      <occurrences minimum="0" maximum="1"/>
     </input>
     <input name="lunchOpen" type="TextLine">
       <label>Open durng lunch</label>
-      <occurrences minimum="1" maximum="1"/>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+    <input name="availablePositions" type="Long">
+      <label>Available positions</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+    <input name="workers" type="Long">
+      <label>Workers</label>
+      <occurrences minimum="0" maximum="1"/>
     </input>
     <item-set name="staff">
       <label>Staff</label>
@@ -34,9 +42,13 @@
             <allowPath>*</allowPath>
           </config>
         </input>
-        <input name="role" type="TextLine">
+        <input name="role" type="ComboBox">
           <label>Role</label>
           <occurrences minimum="1" maximum="1"/>
+          <config>
+            <option value="owner">Owner</option>
+            <option value="worker">Worker</option>
+          </config>
         </input>
       </items>
       <occurrences minimum="0" maximum="0"/>
