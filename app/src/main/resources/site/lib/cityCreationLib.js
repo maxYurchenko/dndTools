@@ -9,7 +9,7 @@ exports.createCity = function( params, currContent ){
   norseUtils.log('Preparing to generate city');
   content = currContent;
   params = generateParams(params);
-  var population = generatePopulation( params.size );
+  var population = generatePopulation( params.size ) / 10;
   var wealth = generateWealth( population, params.size );
   var citizens = generateTownCitizens( population, params );
   var buildings = generateBuildingsAmount(population, params.size);
@@ -58,7 +58,7 @@ function generateBuildingWorkers( citizens, amount ){
 function generatePopulation( size ){
   switch (size) {
       case 0:
-          var population = Math.floor((Math.random() * 480) + 20);
+          var population = Math.floor((Math.random() * 250) + 250);
           break;
       case 1:
           var population = Math.floor((Math.random() * 500) + 500);
@@ -102,7 +102,7 @@ function generateBuildingsAmount( population, size ){
       } else {
           var sizeCoefficient = 0;
       }
-      score[cityHelper[i].type] = Math.floor((Math.random() * ((sizeCoefficient + 3) * 2)) + (sizeCoefficient * 50));
+      score[cityHelper[i].type] = Math.floor((Math.random() * ((sizeCoefficient + 3) * 2)) + (sizeCoefficient * 25));
       buildingsAmount[cityHelper[i].type] = {};
       for( var j = 0; j < cityHelper[i].subTypes.length; j++ ){
           buildingsAmount[cityHelper[i].type][cityHelper[i].subTypes[j].subTypeName] = {
@@ -295,7 +295,7 @@ function generateSingleCitizen( names, race, raceStats ){
   } else {
       charachterClass = '';
   }
-  var friends = Math.floor((Math.random() * 25));
+  var friends = Math.floor((Math.random() * 4) + 1);
   var married = Math.floor((Math.random() * friends)) - Math.floor((Math.random() * friends));
   return {
       //sex:
@@ -513,6 +513,7 @@ function createCity( name, population, wealth, size ){
       name: name,
       displayName: name,
       parentPath: '/dndTools/cities',
+      branch: 'draft',
       contentType: app.name + ':town',
       data: {
           wealth: wealth,
@@ -523,6 +524,7 @@ function createCity( name, population, wealth, size ){
   var citizensFolder = contentLib.create({
       name: 'citizens',
       displayName: 'Citizens',
+      branch: 'draft',
       parentPath: city._path,
       contentType: 'base:folder',
       data: {}
@@ -530,6 +532,7 @@ function createCity( name, population, wealth, size ){
   var buildingsFolder = contentLib.create({
       name: 'buildings',
       displayName: 'Buildings',
+      branch: 'draft',
       parentPath: city._path,
       contentType: 'base:folder',
       data: {}
@@ -610,7 +613,7 @@ exports.addRelationshipToPerson = function( person ){
       editor: relationshipEditor
     });
   } catch( err ){
-    norseUtils.log('ERROR while adding relationship to ' + person.occupation + ' ' + person.name);
+    norseUtils.log('WARN while adding relationship to ' + person.occupation + ' ' + person.name);
   }
 
   function relationshipEditor(c){
@@ -626,6 +629,7 @@ exports.createPerson = function( person, parentPath ){
           displayName: person.name,
           parentPath: parentPath,
           contentType: app.name + ':person',
+          branch: 'draft',
           refresh: true,
           data: {
             race: person.race,
@@ -638,7 +642,7 @@ exports.createPerson = function( person, parentPath ){
           }
       });
   } catch( err ){
-    norseUtils.log('ERROR creating ' + person.occupation + ' ' + person.name);
+    norseUtils.log('WARN creating ' + person.occupation + ' ' + person.name);
   }
 }
 
@@ -666,6 +670,7 @@ exports.createBuilding = function( building, type, subType, parentPath ){
           displayName: building.name,
           parentPath: parentPath,
           contentType: app.name + ':building',
+          branch: 'draft',
           refresh: true,
           data: {
             type: type,
@@ -679,6 +684,6 @@ exports.createBuilding = function( building, type, subType, parentPath ){
           }
       });
   } catch( err ){
-    norseUtils.log('ERROR creating ' + subType + ' ' + type + ' ' + building.name);
+    norseUtils.log('WARN creating ' + subType + ' ' + type + ' ' + building.name);
   }
 }
