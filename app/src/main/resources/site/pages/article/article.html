@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head data-th-utext="${pageComponents.pagehead}"></head>
+
+<body>
+    <header data-th-utext="${pageComponents.header}"></header>
+    <main>
+    	<div>
+    		<h2 data-th-text="${content.displayName}"></h2>
+            <section data-portal-region="main">
+                <div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">
+                    <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+                </div>
+                <button onclick="vote(0)">Downvote</button>
+                <button onclick="vote(1)">Upvote</button>
+            </section>
+    	</div>
+    </main>
+    <footer data-th-utext="${pageComponents.footer}"></footer>
+</body>
+
+</html>
+
+<script data-th-inline="javascript">
+    function vote(type) {
+        var url = false;
+        if( type == 0 ){
+            url = [[${downvoteUrl}]];
+        } else {
+            url = [[${upvoteUrl}]];
+        }
+        $.ajax({
+          url: url,
+          context: document.body
+        }).done(function(data) {
+            console.log(data);
+        });
+    }
+</script>

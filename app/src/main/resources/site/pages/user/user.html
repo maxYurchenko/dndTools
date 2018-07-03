@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head data-th-utext="${pageComponents.pagehead}"></head>
+
+<body>
+    <header data-th-utext="${pageComponents.header}"></header>
+    <main>
+		<div class="content-width">
+	    	<div data-th-rempve="tag" data-th-if="${pageParams.register}">
+	    		<div data-th-utext="${pageParams.register}"></div>
+	    	</div>
+		</div>
+    </main>
+    <footer data-th-utext="${pageComponents.footer}"></footer>
+</body>
+
+</html>
