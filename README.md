@@ -1,11 +1,10 @@
 # [DnD tools app]
 # Setup
 
-##Recommender way
-
+## Recommender way
 Install Enonic XP by following the [official docummentation](http://xp.readthedocs.io/en/stable/getstarted/other.html).
 
-##Using docker
+## Using docker
 *I am not using this method for some time, so, note, there might be some troubles with it.*
 
 Install docker and docker-compose - https://docs.docker.com/compose/
