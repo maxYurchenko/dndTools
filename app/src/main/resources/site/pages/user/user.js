@@ -5,6 +5,7 @@ var contentLib = require('/lib/xp/content');
 var norseUtils = require('norseUtils');
 var dndToolsUtils = require('dndToolsUtils');
 var helpers = require('helpers');
+var userLib = require('user');
 
 exports.get = handleReq;
 
@@ -44,8 +45,15 @@ function handleReq(req) {
     function processParams( params ){
         var register = false;
         var login = false;
+        var result = false;
         if( params.login && params.password && params.email ){
-            norseUtils.log(params);
+            result = userLib.register( params.login, params.email, params.password );
+        }
+        if( params.username && params.password ){
+            result = userLib.login( params.username, params.password );
+        }
+        if( params.logout ){
+            result = userLib.logout();
         }
         if( params.register ){
             register = thymeleaf.render(resolve('register.html'), {});

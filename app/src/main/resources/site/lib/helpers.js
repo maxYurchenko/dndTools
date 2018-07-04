@@ -2,6 +2,7 @@ var contentLib = require('/lib/xp/content');
 var portal = require('/lib/xp/portal');
 var thymeleaf = require('/lib/xp/thymeleaf');
 var norseUtils = require('norseUtils');
+var userLib = require('user');
 
 exports.getPageComponents = function( req, headerAttributes ) {
   var pageComponents = {};
@@ -14,6 +15,7 @@ exports.getPageComponents = function( req, headerAttributes ) {
 
   pageComponents['header'] = thymeleaf.render( resolve('../pages/components/header.html'), {
     content: content,
+    userTopMenu: checkUser(),
     site: site,
     menu: menu,
     headerAttributes: headerAttributes
@@ -41,3 +43,12 @@ exports.getPageComponents = function( req, headerAttributes ) {
 
   return pageComponents;
 };
+
+function checkUser(){
+  var user = userLib.getCurrUser();
+  var result = {};
+  if( user ){
+    result.user = user;
+  }
+  return result;
+}

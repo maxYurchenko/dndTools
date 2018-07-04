@@ -26,14 +26,14 @@ dependencies {
     compile "com.enonic.xp:portal-api:${xpVersion}"
     include "com.enonic.xp:lib-content:${xpVersion}"
     include "com.enonic.xp:lib-portal:${xpVersion}"
-    include "com.enonic.xp:lib-thymeleaf:${xpVersion}"    
+    include "com.enonic.xp:lib-thymeleaf:${xpVersion}"
     include 'com.enonic.lib:util:1.1.1'
     include "com.enonic.xp:lib-i18n:${xpVersion}"
     include "com.enonic.xp:lib-http-client:${xpVersion}"
     include 'com.enonic.lib:menu:1.2.0'
     include "com.enonic.xp:lib-context:${xpVersion}"
 
-    //include "com.enonic.xp:lib-auth:${xpVersion}"
+    include "com.enonic.xp:lib-auth:${xpVersion}"
     //include "com.enonic.xp:lib-cache:${xpVersion}"
     //include "com.enonic.xp:lib-http-client:${xpVersion}"
     //include "com.enonic.xp:lib-io:${xpVersion}"

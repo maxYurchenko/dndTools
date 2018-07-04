@@ -5,9 +5,12 @@
 				<div class="search-block">
 					<input class="input-search" type="search" placeholder="Looking for something?">
 				</div>
-				<div class="user-action-list">
+				<div data-th-unless="${userTopMenu.user}" class="user-action-list">
 				    <a class="user-action-item" href="#" data-th-attr="title=${portal.localize({'_key=global.login','_locale='+content.language})}" title="Login" data-th-text="${portal.localize({'_key=global.login','_locale='+content.language})}">Login</a>
 				    <a class="user-action-item" href="#" data-th-attr="title=${portal.localize({'_key=global.register','_locale='+content.language})}" data-th-text="${portal.localize({'_key=global.register','_locale='+content.language})}">Register</a>
+				</div>
+				<div data-th-if="${userTopMenu.user}" class="user-action-list">
+				    <a data-th-text="${userTopMenu.user.displayName}" class="user-action-item" href="#">Login</a>
 				</div>
 			</div>
 		</div>
