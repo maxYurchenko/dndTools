@@ -35,8 +35,8 @@ function handleGet(req) {
             content: content,
             mainRegion: content.page.regions['main'],
             app: app,
-            downvoteUrl: req.scheme + "://" + req.host + '/_/service/com.myurchenko.dndTools/content?type=downvote&id=' + content._path,
-            upvoteUrl: req.scheme + "://" + req.host + '/_/service/com.myurchenko.dndTools/content?type=upvote&id=' + content._path
+            downvoteUrl: req.scheme + "://" + req.host + '/_/service/com.myurchenko.dndTools/content?type=downvote&path=' + content._path + '&id=' + content._id,
+            upvoteUrl: req.scheme + "://" + req.host + '/_/service/com.myurchenko.dndTools/content?type=upvote&path=' + content._path + '&id=' + content._id
         };
 
         return model;

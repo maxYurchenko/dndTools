@@ -1,0 +1,159 @@
+html, body {
+	height: 100%;
+	background-color: #160d1d;
+}
+
+.comingSoonBackground{
+	background-image: url('../images/background@3x.png');
+	background-size: cover;
+	padding: 0 40px;
+}
+.comingSoonWrapper{
+	width: 380px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 40px 0 0 0;
+}
+.comingSoonText{
+	font-family: Roboto;
+	font-size: 48px;
+	font-weight: bold;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.25;
+	letter-spacing: normal;
+	color: #ffffff;
+	margin: 47px auto 0 auto;
+}
+.comingSoonDescription{
+	width: 364px;
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.43;
+	letter-spacing: normal;
+	text-align: center;
+	color: #ffffff;
+	margin: 22px auto 0 auto;
+}
+
+.comingSoonMailBlock{
+	margin: 32px auto 0 auto;
+
+	.comingSoonInput{
+		width: 240px;
+		height: 40px;
+		border-radius: 4px;
+		background-color: #ffffff;
+		box-shadow: 0 4px 16px 0 rgba(165, 36, 20, 0.5);
+		font-family: Roboto;
+		font-size: 16px;
+		font-weight: normal;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: 1.5;
+		letter-spacing: normal;
+		color: #333333;
+	}
+
+	.comingSoonInput:focus{
+		box-shadow: 0 4px 16px 0 rgba(25, 122, 173, 0.5);
+		border: solid 1px #197aad;
+	}
+
+	.comingSoonButton{
+		width: 63px;
+		height: 40px;
+		border-radius: 4px;
+		background-color: #de4225;
+		box-shadow: 0 4px 16px 0 rgba(165, 36, 20, 0.5);
+		font-family: Roboto;
+		font-size: 14px;
+		font-weight: bold;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: normal;
+		letter-spacing: normal;
+		color: #ffffff;
+		border: 0px;
+	}
+
+	.comingSoonButton:hover{
+		box-shadow: 0 4px 16px 0 rgba(165, 36, 20, 0.5);
+	}
+
+	.comingSoonButton:active{
+		box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, 0.5);
+	}
+}
+@media only screen and (max-width: $breakpoint-mobile-small-max ) {
+	.comingSoonMailBlock .comingSoonInput, .comingSoonMailBlock .comingSoonButton, .comingSoonDescription, .comingSoonText, .comingSoonWrapper{
+		width: 100%;
+	}
+}
+
+.comingSoonSocial{
+	margin: 0 auto;
+	overflow: hidden;
+	display: table;
+	margin-top: 119px;
+	.comingSoonSocialBiggerWrapper, .comingSoonSocialSmallerWrapper{
+		float: left;
+		overflow: hidden;
+		div{
+			width: 32px;
+			height: 32px;
+			float: left;
+			margin-left: 32px;
+			background-size: contain;
+			a{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			a:hover{
+				object-fit: contain;
+				box-shadow: 0 4px 16px 0 rgba(165, 36, 20, 0.5);
+			}
+		}
+	}
+	@media only screen and (max-width: $breakpoint-mobile-small-max ) {
+		margin-top: 40px;
+		div{
+			.comingSoonSocialSmaller{
+				width: 24px;
+				heigth: 24px;
+				margin: 24px 0 0 21px;
+			}
+			:first-child{
+				margin-left: 0;
+			}
+		}
+		.comingSoonSocialBiggerWrapper, .comingSoonSocialSmallerWrapper{
+			float: none;
+		}
+	}
+}
+.comingSoonTwitch{
+	background-image: url('../images/twitch.svg');
+}
+.comingSoonYoutube{
+	background-image: url('../images/youtube.svg');
+}
+.comingSoonDiscord{
+	background-image: url('../images/discord@3x.png');
+}
+.comingSoonVk{
+	background-image: url('../images/vk.svg');
+}
+.comingSoonFb{
+	background-image: url('../images/facebook.svg');
+}
+.comingSoonTw{
+	background-image: url('../images/twitter.svg');
+}
+.comingSoonIn{
+	background-image: url('../images/instagram.svg');
+}

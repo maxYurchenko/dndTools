@@ -10,6 +10,12 @@
 				<config>
 				</config>
 			</input>
+		  	<input name="usersLocation" type="ContentSelector">
+				<label>Users' location</label>
+				<occurrences minimum="1" maximum="1"/>
+				<config>
+				</config>
+			</input>
 		  	<input name="monstersLocation" type="ContentSelector">
 				<label>Monsters' location</label>
 				<occurrences minimum="1" maximum="1"/>

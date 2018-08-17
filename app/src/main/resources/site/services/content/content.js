@@ -1,22 +1,17 @@
 var libs = {
-    norseUtils: require('norseUtils'),
     content: require('/lib/xp/content'),
     context: require('/lib/xp/context')
 };
+var norseUtils = require('norseUtils');
 var contentLib = require('/lib/xp/content');
+var userLib = require('user');
 
 exports.get = function( req ) {
     var result = false;
     if ( req['params']['type'] == 'upvote' ) {
-        if( req['params']['id'] ){
-            result = upvote(req['params']['id']);
-            syncRatingBranches(req['params']['id'], result);
-        }
+        result = prepareUpvote(req['params']);
     } else if( req['params']['type'] == 'downvote' ) {
-        if( req['params']['id'] ){
-            result = downvote(req['params']['id']);
-            syncRatingBranches(req['params']['id'], result);
-        }
+        result = prepareDownvote(req['params']);
     }
     return {
         body: result,
@@ -24,42 +19,104 @@ exports.get = function( req ) {
     }
 };
 
-function upvote( path ) {
+function prepareUpvote( params ){
+    var result = false;
+    if( params['path'] ){
+        var voted = userLib.checkVoted( params['id'] );
+        if(voted.upvoted){
+            return 'already voted';
+        } else if( voted.downvoted ){
+            //result = removeDownvote(params['path'], params['id']);
+        } else {
+            result = upvote(params['path'], params['id']);
+        }
+        //syncRatingBranches(params['path'], result);
+    }
+    return result;
+}
+
+function prepareDownvote( params ){
+    var result = false;
+    if( params['path'] ){
+        var voted = userLib.checkVoted( params['id'] );
+        if(voted.downvoted){
+            return 'already voted';
+        } else if( voted.voted ){
+            //result = removeUpvote(params['path'], params['id']);
+        } else {
+            result = downvote(params['path'], params['id']);
+        }
+        //syncRatingBranches(params['path'], result);
+    }
+    return result;
+}
+
+function upvote( path, id ) {
     var content = false;
+    var user = userLib.getCurrUserObj();
+    if( !user ){
+        return false;
+    }
     var result = libs.context.run({
         user: {
             login: 'su'
         },
         principals: ["role:system.admin"]
     }, function() {
-        content = contentLib.modify({
+        contentLib.modify({
+            key: user._path,
+            editor: function(c) {
+                if( c.data.votedFor ){
+                    c.data.votedFor = norseUtils.forceArray( c.data.votedFor ).push( id );
+                } else {
+                    c.data.votedFor = id;
+                }
+                return c;
+            }
+        });
+        /*content = contentLib.modify({
             key: path,
             editor: function(c) {
                 c.data.rating = c.data.rating + 1;
                 return c;
             }
-        });
+        });*/
     });
-    return content.data.rating;
+    return true;
 }
 
-function downvote( path ) {
+function downvote( path, id ) {
     var content = false;
+    var user = userLib.getCurrUserObj();
+    if( !user ){
+        return false;
+    }
     var result = libs.context.run({
         user: {
             login: 'su'
         },
         principals: ["role:system.admin"]
     }, function() {
-        content = contentLib.modify({
-            key: path,
+        contentLib.modify({
+            key: user._path,
             editor: function(c) {
-                c.data.rating = c.data.rating - 1;
+                if( c.data.downvoteFor ){
+                    c.data.downvoteFor = norseUtils.forceArray( c.data.downvoteFor ).push( id );
+                } else {
+                    c.data.downvoteFor = id;
+                }
                 return c;
             }
         });
+        /*content = contentLib.modify({
+            key: path,
+            editor: function(c) {
+                c.data.rating = c.data.rating + 1;
+                return c;
+            }
+        });*/
     });
-    return content.data.rating;
+    return true;
 }
 
 function syncRatingBranches( path, rating ){
